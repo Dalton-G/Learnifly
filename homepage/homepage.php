@@ -3,5 +3,6 @@
 <!-- your content goes here -->
 <!-- your content goes here -->
 <!-- your content goes here -->
+<!-- your content goes here -->
 
 <?php include "../../Learnifly/navbar/footer.php"; ?>
