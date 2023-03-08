@@ -1,0 +1,461 @@
+/**************************
+Author: Gan Ming liang
+TP No: TP063338 
+Subject: Header Dark Theme
+**************************/
+
+/**************************
+F O N T - U S E D:
+font-family: 'League Spartan', sans-serif;
+font-family: 'Montserrat', sans-serif;
+**************************/
+
+/* import fonts & icons */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* root selector */
+:root {
+    --icon-theme-color: #f1c40f;
+    --icon-logo-color: #edf0f1;
+
+    --header-background: #272837;
+    --body-background: #36393e;
+
+    --slider-ball: #edf0f1;
+    --slider-background: #424549;
+
+    --nav-text-inactive: #edf0f1;
+    --nav-text-active: #AB9DBB;
+    
+    --dropdown-box-background: #272837;
+    --dropdown-box-shadow: 0 2px 5px 0 rgba(255, 255, 255, .1);
+}
+
+/* standard webpage setup */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh; /* important for footer to stick to bottom */
+    background-color: var(--body-background); /* can remove if you want */
+    color: var(--nav-text-inactive); /*can remove if you want */
+    transition: background 0.2s linear, color 0.2s linear; /* just to animate the theme swap */
+}
+
+/* header container */
+.flexbox-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--header-background);
+    padding: 30px 0px 30px 0px;
+    transition: background 0.2s linear;
+}
+
+.flexbox-item {
+    width: 200px;
+    margin: 10px;
+    background-color: var(--header-background);
+    transition: background 0.2s linear;
+}
+
+/* header column 1 - left [logo] */
+.flexbox-item-1 {
+    min-height: 20px;
+    align-items: center;
+}
+
+.flexbox-item-1-logo {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 36px;
+    color: var(--icon-logo-color);
+    padding-top: 6px;
+}
+
+.flexbox-item-1-logo > .fa-paper-plane {
+    font-size: 30px;
+}
+
+.header-logo-link {
+    text-decoration: none;
+}
+
+.flexbox-item-1-logo:hover {
+    color: var(--nav-text-active);
+    transition: color 0.2s linear;
+}
+
+/* header column 2 - center [navbar] */
+.flexbox-item-2 {
+    min-height: 20px;
+    min-width: 800px;
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.navbar-link {
+    border: none;
+    text-decoration: none;
+    color: var(--nav-text-inactive);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    align-content: center;
+    justify-content: center;
+    transition: color 0.2s linear;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown.active > .navbar-link, .navbar-link:hover {
+    color: var(--nav-text-active);
+    transition: color 0.2s linear;
+}
+
+.dropdown-menu {
+    position: absolute;
+    left: 0;
+    top: calc(100% + .25rem);
+    background-color: var(--dropdown-box-background);
+    padding: .75rem;
+    border-radius: .25rem;
+    box-shadow: var(--dropdown-box-shadow);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out, background 0.2s linear;
+}
+
+.dropdown.active > .navbar-link + .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.information-grid {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 2rem;
+}
+
+.dropdown-links {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+.dropdown-heading {
+    font-size: 16px;
+    font-family:'League Spartan', sans-serif;
+    padding-bottom: 2px;
+    color: var(--nav-text-active);
+    transition: color 0.2s linear;
+}
+
+.dropdown-navbar-link {
+    border: none;
+    text-decoration: none;
+    color: var(--nav-text-inactive);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    align-content: center;
+    justify-content: center;
+    transition: color 0.2s linear;
+}
+
+.dropdown.active > .dropdown-navbar-link, .dropdown-navbar-link:hover {
+    color: var(--nav-text-active);
+    transition: color 0.2s linear;
+}
+
+.dropdown > button {
+    background-color: var(--header-background);
+    transition: background 0.2s linear;
+    
+}
+
+/* header column 3 - right [icons] */
+.flexbox-item-3 {
+    position: relative;
+    min-height: 20px;
+    min-width: 110px;
+    display: flex;
+    padding: .5rem;
+    gap: 2.0rem;
+    align-items: center;
+    justify-content: right;
+}
+
+/* header column 3 - right [toggle theme] */
+.toggle-container {
+    padding: 0;
+    margin: 0;
+}
+
+.header-toggle-theme-label-class {
+    background-color: var(--slider-background);
+    justify-content: space-between;
+    position: relative; /*combo with position absolute of ball later on*/
+    align-items: center;
+    display: flex; /*flexbox*/
+    border-radius: 50px;
+    padding: 2px; /*toggle slider size*/
+    height: 26px;
+    width: 51px;
+    transform: scale(0.8); /* adjust the slider scale */
+    transition: background 0.2s linear;
+}
+
+.header-toggle-theme-checkbox-class {
+    opacity: 0; /*hide checkbox*/
+    position: absolute; /*remove the position of the checkbox*/
+}
+
+.header-toggle-theme-checkbox-class:checked +
+.header-toggle-theme-label-class 
+.header-toggle-theme-ball  {
+    transform: translateX(24px);
+}
+
+.header-toggle-theme-ball {
+    background-color: var(--slider-ball);
+    position: absolute; /*combo with position relative of label earlier on*/
+    border-radius: 50px;
+    left: 3px;
+    height: 25px; /*ball size*/
+    width: 25px; /*ball size*/
+    transition: transform 0.2s linear;
+}
+
+.fa-moon {
+    color: var(--icon-theme-color);
+    padding: 5px;
+}
+
+.fa-sun {
+    color: var(--icon-theme-color);
+    padding: 5px;
+}
+
+/*****************
+ footer section 
+ ****************/
+
+ .footer-distributed{
+    background: var(--header-background);
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font-family: 'League Spartan', sans-serif;
+    padding: 55px 200px;
+    position: sticky;
+    top: 100%;
+    transition: background 0.2s linear;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+    width: 40%;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+    color:  var(--nav-text-inactive);
+    font-size: 36px;
+    font-family: 'League Spartan', sans-serif;
+    margin: 0;
+    margin-top: 10px;
+    transition: color 0.2s linear;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+    color:  var(--nav-text-inactive);
+    margin: 10px 0 12px;
+    padding: 0;
+    transition: color 0.2s linear;
+}
+
+.footer-distributed .footer-links a{
+    display:inline-block;
+    line-height: 1.8;
+    font-weight: 400;
+    text-decoration: none;
+    color:  var(--nav-text-inactive);
+    transition: color 0.2s linear;
+}
+
+.footer-distributed .footer-links a:hover{
+    color: var(--nav-text-active);
+    transition: color 0.2s linear;
+}
+
+.footer-distributed .footer-company-name{
+    color:  var(--nav-text-active);
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    transition: color 0.2s linear;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+    width: 35%;
+}
+
+.footer-distributed .footer-center i{
+    background-color:  var(--slider-background);
+    color: var(--nav-text-inactive);
+    font-size: 20px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    margin: 10px 15px;
+    vertical-align: middle;
+    transition: color 0.2s linear, background 0.2s linear;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+    font-size: 17px;
+    line-height: 39px;
+}
+
+.footer-distributed .footer-center p{
+    display: inline-block;
+    color: var(--nav-text-inactive);
+    font-weight:400;
+    vertical-align: middle;
+    margin: 0;
+    transition: color 0.2s linear;
+}
+
+.footer-distributed .footer-center .footer-center-align p{
+    padding-top: 10px;
+}
+
+.footer-distributed .footer-center p span{
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 2
+}
+
+.footer-distributed .footer-center p a{
+    color:  var(--nav-text-active);
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;;
+    transition: color 0.2s linear;
+}
+
+.footer-center-align {
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-center .footer-center-icon i {
+    color: var(--nav-text-inactive);
+    transition: color 0.2s linear;
+}
+
+.footer-center .footer-center-icon i:hover {
+    color: var(--nav-text-active);
+    transition: color 0.2s linear;
+}
+
+.footer-distributed .footer-links a:before {
+    content: "|";
+    font-weight:300;
+    font-size: 20px;
+    left: 0;
+    color: var(--nav-text-inactive);
+    display: inline-block;
+    padding-right: 5px;
+    transition: color 0.2s linear;
+}
+
+.footer-distributed .footer-links .link-1:before {
+    content: none;
+}
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+    width: 20%;
+}
+
+.footer-distributed .footer-company-about{
+    line-height: 20px;
+    color: var(--nav-text-inactive);
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    transition: color 0.2s linear;
+}
+
+.footer-distributed .footer-company-about span{
+    display: block;
+    color:  var(--nav-text-inactive);
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    transition: color 0.2s linear;
+}
+
+.footer-distributed .footer-icons{
+    margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color:  var(--slider-background);
+    border-radius: 2px;
+    font-size: 20px;
+    color: var(--nav-text-inactive);
+    text-align: center;
+    line-height: 40px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    transition: background 0.2s linear, color 0.2s linear;
+}
+
+.footer-distributed .footer-icons a:hover{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color:  var(--nav-text-active);
+    border-radius: 2px;
+    font-size: 20px;
+    color: var(--slider-background);
+    text-align: center;
+    line-height: 40px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    transition: background 0.2s linear, color 0.2s linear;
+}
