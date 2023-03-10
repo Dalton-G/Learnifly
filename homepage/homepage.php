@@ -2,6 +2,7 @@
 
 <!-- your content goes here -->
 <!-- your content goes here -->
-<!-- comment-->
+<!-- comment again -->
+<!-- lol -->
 
 <?php include "../../Learnifly/navbar/footer.php"; ?>
