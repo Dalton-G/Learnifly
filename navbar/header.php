@@ -21,7 +21,6 @@
             <a href="#" class="navbar-link">Home</a>
             <a href="#" class="navbar-link">Study</a>
             <a href="#" class="navbar-link">Hangout</a>
-            <a href="#" class="navbar-link">Marketplace</a>
             <!-- dropdown-menu -->
             <div class="dropdown" data-dropdown>
                 <button class="navbar-link" data-dropdown-button>More</button>

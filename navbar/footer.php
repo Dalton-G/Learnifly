@@ -19,7 +19,6 @@
 				<a href="#" class="link-1">Home</a>
 				<a href="#">Study</a>
 				<a href="#">Hangout</a>
-				<a href="#">Marketplace</a>
 			</p>
 			<p class="footer-company-name">
 				All Rights Reserved © Team Acme 2023 <br>
