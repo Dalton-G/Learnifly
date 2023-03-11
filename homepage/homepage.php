@@ -1,9 +1,6 @@
 <?php include "../../Learnifly/navbar/header.php"; ?>
 
-<!-- your content goes here -->
-<!-- your content goes here -->
-<!-- comment again -->
-<!-- lol -->
-<!-- hmmm-->
+<!-- you can add your content here -->
+<!-- adding a code -->
 
 <?php include "../../Learnifly/navbar/footer.php"; ?>
