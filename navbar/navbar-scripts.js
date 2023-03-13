@@ -24,7 +24,7 @@ document.addEventListener('click', e => {
 
 // [2.1] - get the storage value (theme) from localStorage, if it exists //
 const checkbox = document.getElementById('header-toggle-theme-checkbox-id');
-const storedValue = localStorage.getItem('header-toggle-theme-checkbox-id');
+const storedValue = localStorage.getItem('header-toggle-theme-checkbox-id'); //get the localstorage value
 
 // [2.2] - If a stored value exists, use it to set the checkbox to true (dark-theme) //
 if (storedValue === "true") {
@@ -41,6 +41,6 @@ if (storedValue === "true") {
 
 // [2.4] - this eventListener will check whether the checkbox is toggled //
 checkbox.addEventListener('change', function() {
-    localStorage.setItem("header-toggle-theme-checkbox-id", checkbox.checked);
+    localStorage.setItem("header-toggle-theme-checkbox-id", checkbox.checked); //set the localstorage value
     console.log(localStorage.getItem("header-toggle-theme-checkbox-id"));
 });
