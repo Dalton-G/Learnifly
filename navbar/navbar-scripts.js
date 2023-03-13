@@ -15,6 +15,7 @@ document.addEventListener('click', e => {
         if (dropdown === currentDropdown) return
         dropdown.classList.remove('active')
     })
+    console.log("click once!");
 })
 
 

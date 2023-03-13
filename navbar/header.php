@@ -90,7 +90,6 @@
                 </div>
             </div>
             <!-- [3.3] toggle theme function -->
-            <!-- <a href="#" class="navbar-link"><i class="fa-solid fa-toggle-on"></i></a> -->
             <div class="toggle-container">
                 <input type="checkbox" class="header-toggle-theme-checkbox-class" id="header-toggle-theme-checkbox-id" onclick="isChecked()">
                 <label for="header-toggle-theme-checkbox-id" class="header-toggle-theme-label-class">
