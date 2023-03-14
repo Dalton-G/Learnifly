@@ -16,6 +16,11 @@ font-family: 'Montserrat', sans-serif;
 
 :root {
     --page--title--color: #edf0f1; 
+    --button-bg-color: #272837;
+    --button-text-color: #edf0f1;
+    --button-border-color: #737373;
+    --nav-text-inactive: #edf0f1;
+    --nav-text-active: #AB9DBB;
 }
 
 
@@ -26,4 +31,38 @@ font-family: 'Montserrat', sans-serif;
     font-family: 'League Spartan', sans-serif;
     margin-top: 36px;
 
+}
+
+.button-container {
+    margin-top: 70px;
+}
+
+.button-item {
+    padding: 10px;
+    text-align: center;
+}
+
+.default_button {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    width: 250px;
+    height: 80px;
+    border-radius: 10px;
+    border-width: 0.8px;
+    border-color: var(--button-border-color);
+}
+
+.default_button:hover {
+    color: var(--nav-text-active);
+    transition: color 0.2s linear;
+}
+
+.main_image {
+    display:block;
+    margin-top: 40px;
+    margin-left:auto;
+    margin-right:auto;
+    width: 450px;
 }
