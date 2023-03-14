@@ -48,7 +48,7 @@
                         <div class="dropdown-heading">Admin Function</div>
                         <div class="dropdown-links">
                             <a href="#" class="dropdown-navbar-link">Manage Account</a>
-                            <a href="#" class="dropdown-navbar-link">Manage Course</a>
+                            <a href="../../Learnifly/study/course/course.php" class="dropdown-navbar-link">Manage Course</a>
                             <a href="#" class="dropdown-navbar-link">Manage Classroom</a>
                         </div>
                     </div>
