@@ -27,10 +27,14 @@
             </form>
         </div>
         <div class = "button-item">
-            <button type = "submit" name = "modify_course_button" class = "default_button">Modify Course</button>
+            <form action = "../course/modifyCourse/modifyCourse.php" method = "get">
+                <button type = "submit" name = "modify_course_button" class = "default_button">Modify Course</button>
+            </form>
         </div>
         <div class = "button-item">
-            <button type = "submit" name = "delete_course_button" class = "default_button">Delete Course</button>
+            <form action = "../course/deleteCourse/deleteCourse.php" method = "get">
+                <button type = "submit" name = "delete_course_button" class = "default_button">Delete Course</button>
+            </form>
         </div>
     </div>
 

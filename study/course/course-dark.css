@@ -21,6 +21,7 @@ font-family: 'Montserrat', sans-serif;
     --button-border-color: #737373;
     --nav-text-inactive: #edf0f1;
     --nav-text-active: #AB9DBB;
+    --button-active-color: #030412;
 }
 
 
@@ -35,6 +36,23 @@ font-family: 'Montserrat', sans-serif;
 
 .button-container {
     margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    animation: slide-down 0.8s ease forwards;
+    opacity: 0;
+}
+
+@keyframes slide-down {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
 }
 
 .button-item {
@@ -49,14 +67,18 @@ font-family: 'Montserrat', sans-serif;
     font-size: 22px;
     width: 250px;
     height: 80px;
-    border-radius: 10px;
+    border-radius: 6px;
     border-width: 0.8px;
     border-color: var(--button-border-color);
 }
 
 .default_button:hover {
     color: var(--nav-text-active);
+    background-color: var(--button-active-color);
     transition: color 0.2s linear;
+    transition: background-color 0.2s linear;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px black;
 }
 
 .main_image {
