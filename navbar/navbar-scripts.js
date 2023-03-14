@@ -31,15 +31,9 @@ if (storedValue === "true") {
     checkbox.checked = true;
     document.getElementById("theme").setAttribute('href', '../../../Learnifly/navbar/navbar-dark.css')
     document.getElementById("themeF").setAttribute('href', '../../../Learnifly/navbar/navbar-dark.css')
-
-// [2.3] - If a stored value DOES NOT exists, set the checkbox to false (light-theme) //
-} else if (storedValue === "false") { 
-    checkbox.checked = false;
-    document.getElementById("theme").setAttribute('href', '../../../Learnifly/navbar/navbar-light.css')
-    document.getElementById("themeF").setAttribute('href', '../../../Learnifly/navbar/navbar-light.css')
 }
 
-// [2.4] - this eventListener will check whether the checkbox is toggled //
+// [2.3] - this eventListener will check whether the checkbox is toggled //
 checkbox.addEventListener('change', function() {
     localStorage.setItem("header-toggle-theme-checkbox-id", checkbox.checked); //set the localstorage value
     console.log(localStorage.getItem("header-toggle-theme-checkbox-id"));
