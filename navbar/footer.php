@@ -7,8 +7,6 @@
     <title>Learnifly</title>
     <link rel="shortcut icon" type="image/png" href="../../../Learnifly/images/tp063338/logo/favicon.ico"/>
 	<link id="themeF" rel="stylesheet" type="text/css" href="../../../Learnifly/navbar/navbar-light.css">
-    <script src="https://kit.fontawesome.com/824073b7bb.js" crossorigin="anonymous"></script>
-    <script src="../../../Learnifly/navbar/footer-scripts.js" type="text/javascript" defer></script>
 </head>
 <body>
 	<footer class="footer-distributed">
