@@ -18,7 +18,7 @@
         </div>
         <!-- coloum 2 - center -->
         <div class="flexbox-item flexbox-item-2">
-            <a href="#" class="navbar-link">Home</a>
+            <a href= "../../../Learnifly/homepage/homepage.php" class="navbar-link">Home</a> 
             <a href="#" class="navbar-link">Study</a>
             <a href="#" class="navbar-link">Hangout</a>
             <!-- dropdown-menu -->
@@ -48,11 +48,20 @@
                         <div class="dropdown-heading">Admin Function</div>
                         <div class="dropdown-links">
                             <a href="#" class="dropdown-navbar-link">Manage Account</a>
-                            <a href="../../Learnifly/study/course/course.php" class="dropdown-navbar-link">Manage Course</a>
+                            <a href="../../../Learnifly/study/course/course.php" class="dropdown-navbar-link">Manage Course</a>
                             <a href="#" class="dropdown-navbar-link">Manage Classroom</a>
                         </div>
                     </div>
                     
+                    <!-- [2.4] coursework dropdown section -->
+                    <div>
+                        <div class="dropdown-heading">Coursework</div>
+                        <div class="dropdown-links">
+                            <a href="#" class="dropdown-navbar-link">Assignment</a>
+                            <a href="#" class="dropdown-navbar-link">Exam</a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
