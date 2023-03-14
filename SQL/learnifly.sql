@@ -26,6 +26,9 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `assignment`
 --
+CREATE DATABASE `learnifly`;
+
+USE `learnifly`;
 
 CREATE TABLE `assignment` (
   `assignment_id` int(11) NOT NULL,
@@ -203,7 +206,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `user_name`, `user_password`, `user_email`, `user_role`, `user_profile_pic`, `user_bio`, `user_restriction`) VALUES
 (1, 'Bill Clinton', '11111111', 'bill@gmail.com', 'student', 'directory', 'I love dogs and paw-litics!', NULL),
-(2, 'testing', 'testing1', 'testing@gmail.com', 'admin', 'directory', 'All I do is testing', NULL);
+(2, 'admin', '12345678', 'admin@learnifly.com', 'admin', 'directory', 'All I do is testing', NULL);
 
 --
 -- Indexes for dumped tables
