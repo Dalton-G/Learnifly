@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learnifly</title>
-    <link rel="shortcut icon" type="image/png" href="../../Learnifly/images/tp063338/logo/favicon.ico"/>
-    <link id="theme" rel="stylesheet" type="text/css" href="../../Learnifly/navbar/navbar-light.css">
+    <link rel="shortcut icon" type="image/png" href="../../../Learnifly/images/tp063338/logo/favicon.ico"/>
+    <link id="theme" rel="stylesheet" type="text/css" href="../../../Learnifly/navbar/navbar-light.css">
     <script src="https://kit.fontawesome.com/824073b7bb.js" crossorigin="anonymous"></script>
-    <script src="../../Learnifly/navbar/navbar-scripts.js" type="text/javascript" defer></script>
+    <script src="../../../Learnifly/navbar/navbar-scripts.js" type="text/javascript" defer></script>
 </head>
 <body>
     <div class="flexbox-container" id="header-theme">
@@ -18,7 +18,7 @@
         </div>
         <!-- coloum 2 - center -->
         <div class="flexbox-item flexbox-item-2">
-            <a href= "../../Learnifly/homepage/homepage.php" class="navbar-link">Home</a> 
+            <a href= "../../../Learnifly/homepage/homepage.php" class="navbar-link">Home</a> 
             <a href="#" class="navbar-link">Study</a>
             <a href="#" class="navbar-link">Hangout</a>
             <!-- dropdown-menu -->
@@ -48,7 +48,7 @@
                         <div class="dropdown-heading">Admin Function</div>
                         <div class="dropdown-links">
                             <a href="#" class="dropdown-navbar-link">Manage Account</a>
-                            <a href="../../Learnifly/study/course/course.php" class="dropdown-navbar-link">Manage Course</a>
+                            <a href="../../../Learnifly/study/course/course.php" class="dropdown-navbar-link">Manage Course</a>
                             <a href="#" class="dropdown-navbar-link">Manage Classroom</a>
                         </div>
                     </div>

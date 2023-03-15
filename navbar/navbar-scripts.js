@@ -25,12 +25,12 @@ headerContainer.addEventListener('click', e => {
 function isChecked() {
     if (document.getElementById("header-toggle-theme-checkbox-id").checked) {
         console.log("dark-theme");
-        document.getElementById("themeF").setAttribute('href', '../../Learnifly/navbar/navbar-dark.css')
-        document.getElementById("themeCourse").setAttribute('href', '../../Learnifly/study/course/course-dark.css')
+        document.getElementById("themeF").setAttribute('href', '../../../Learnifly/navbar/navbar-dark.css')
+        document.getElementById("themeCourse").setAttribute('href', '../../../Learnifly/study/course/course-dark.css')
     } else {
         console.log("light-theme");
-        document.getElementById("themeF").setAttribute('href', '../../Learnifly/navbar/navbar-light.css')
-        document.getElementById("themeCourse").setAttribute('href', '../../Learnifly/study/course/course-light.css')
+        document.getElementById("themeF").setAttribute('href', '../../../Learnifly/navbar/navbar-light.css')
+        document.getElementById("themeCourse").setAttribute('href', '../../../Learnifly/study/course/course-light.css')
     }
 }
 
@@ -44,9 +44,9 @@ const storedValue = localStorage.getItem('header-toggle-theme-checkbox-id'); //g
 // [3.2] - If a stored value exists, use it to set the checkbox to true (dark-theme) //
 if (storedValue === "true") {
     checkbox.checked = true;
-    document.getElementById("theme").setAttribute('href', '../../Learnifly/navbar/navbar-dark.css')
-    document.getElementById("themeF").setAttribute('href', '../../Learnifly/navbar/navbar-dark.css')
-    document.getElementById("themeCourse").setAttribute('href', '../../Learnifly/study/course/course-dark.css')
+    document.getElementById("theme").setAttribute('href', '../../../Learnifly/navbar/navbar-dark.css')
+    document.getElementById("themeF").setAttribute('href', '../../../Learnifly/navbar/navbar-dark.css')
+    document.getElementById("themeCourse").setAttribute('href', '../../../Learnifly/study/course/course-dark.css')
 }
 
 // [3.3] - this eventListener will check whether the checkbox is toggled //

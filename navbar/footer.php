@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learnifly</title>
-    <link rel="shortcut icon" type="image/png" href="../../Learnifly/images/tp063338/logo/favicon.ico"/>
-	<link id="themeF" rel="stylesheet" type="text/css" href="../../Learnifly/navbar/navbar-light.css">
+    <link rel="shortcut icon" type="image/png" href="../../../Learnifly/images/tp063338/logo/favicon.ico"/>
+	<link id="themeF" rel="stylesheet" type="text/css" href="../../../Learnifly/navbar/navbar-light.css">
 </head>
 <body>
 	<footer class="footer-distributed">
