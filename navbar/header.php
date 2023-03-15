@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learnifly</title>
     <link rel="shortcut icon" type="image/png" href="../../../Learnifly/images/tp063338/logo/favicon.ico"/>
-    <link id="theme" rel="stylesheet" type="text/css" href="../../../Learnifly/navbar/navbar-light.css">
     <script src="https://kit.fontawesome.com/824073b7bb.js" crossorigin="anonymous"></script>
     <script src="../../../Learnifly/navbar/navbar-scripts.js" type="text/javascript" defer></script>
 </head>
