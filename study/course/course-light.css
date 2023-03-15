@@ -35,10 +35,12 @@ font-family: 'Montserrat', sans-serif;
 }
 
 .button-container {
-    margin-top: 150px;
+    margin-top: 70px;
+    margin-bottom: 70px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
     animation: slide-down 0.8s ease forwards;
     opacity: 0;
 }
@@ -59,19 +61,13 @@ font-family: 'Montserrat', sans-serif;
     text-align: center;
 }
 
-.div-container {
-    display: grid;
-    grid-template-columns: repeat(2, 0.5fr); /* 2 columns, each with equal width */
-    grid-gap: 10px; /* space between grid items */
-    margin-bottom: 70px;
-}
 
 .default_button {
     background-color: var(--button-bg-color);
     color: var(--button-text-color);
     font-family: 'Montserrat', sans-serif;
     font-size: 22px;
-    width: 300px;
+    width: 250px;
     height: 80px;
     border-radius: 6px;
     border-width: 0.8px;
@@ -88,11 +84,9 @@ font-family: 'Montserrat', sans-serif;
 }
 
 .main_image {
-    display:flex;
+    display:block;
     margin-top: 40px;
-    margin-left: 400px;
-    width: 550px;
-    background-color: rgba(200, 200, 200, 0.1);
-    border-radius: 6px;
-    box-shadow: 2px 2px 5px gray;
+    margin-left:auto;
+    margin-right:auto;
+    width: 450px;
 }
