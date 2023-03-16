@@ -1,0 +1,200 @@
+/**************************
+Author: Amadea Lim Yi Wen
+TP No: TP064038
+Subject: Event Dark Theme CSS
+**************************/
+
+/**************************
+F O N T - U S E D:
+font-family: 'League Spartan', sans-serif;
+font-family: 'Montserrat', sans-serif;
+**************************/
+
+/* import fonts & icons */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*Event banner*/
+.event-banner{
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(../../images/tp064038/event/eventBanner.png);
+    background-size: cover;
+    background-position: center center;
+    top: 50px;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+}
+
+.event-banner h2{
+    padding-top: 12%;
+    font-size: 80px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+/*Event cards*/
+.event {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    width: 100%;
+    font-size: 16px;
+    color: #ffffff;
+    background: #272837;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 500px;
+
+}
+
+.item-container {
+    position: relative;
+    margin: 60px;
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    background-color: #393a4e;
+    box-shadow: 0 0 30px 5px rgba(37, 37, 37, 0.15);
+    cursor: pointer;
+}
+
+.img-container,
+.content-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 100%;
+}
+
+.img-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* .img-container img {
+    width: 100%;
+} */
+
+.content-container {
+    position: relative;
+}
+
+.event-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 120px;
+    
+}
+
+.overlay {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-color: rgba(62, 81, 94, 0.6);
+    opacity: 0;
+    transition: height linear 0.4s, opacity linear 0.2s;
+}
+
+.item-container:hover .overlay {
+    opacity: 1;
+    height: 150px;
+}
+
+.event-info {
+    background-color: #393a4e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+}
+
+.title {
+    color: #ffffff;
+    font-size: 1.7em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 10px;
+}
+
+.event-date{
+    color: #fcbfbf;
+    font-size: 1.7em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.separator {
+    width: 50%;
+    height: 6px;
+    background-color: #ffffff;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.info {
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.additional-event-info {
+    border-top: 1px solid #bbb;
+    margin-top: 12px;
+    padding: 28px;
+    padding-bottom: 0;
+}
+
+.additional-event-info .info {
+    font-size: 0.9em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.info i {
+    color: #ffffff;
+    font-size: 1.1em;
+    margin-right: 4px;
+}
+
+.view {
+    color: #fff;
+    border: 3px solid #fff;
+    background-color: transparent;
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    outline: none;
+    cursor: pointer;
+    padding: 12px;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: background-color 0.4s, top 0.4s;
+}
+
+.item-container:hover .view {
+    top: 50px;
+}
+
+.view:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+

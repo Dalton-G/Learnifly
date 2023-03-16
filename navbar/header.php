@@ -18,7 +18,7 @@
         <div class="flexbox-item flexbox-item-2">
             <a href= "../../../Learnifly/homepage/homepage.php" class="navbar-link">Home</a> 
             <a href="#" class="navbar-link">Study</a>
-            <a href="#" class="navbar-link">Hangout</a>
+            <a href="../../../Learnifly/social/event/event.php" class="navbar-link">Hangout</a>
             <!-- dropdown-menu -->
             <div class="dropdown" data-dropdown>
                 <button class="navbar-link" data-dropdown-button>More</button>
