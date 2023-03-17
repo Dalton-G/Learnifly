@@ -13,17 +13,17 @@
             <img src="../../../Learnifly/images/tp063403/manage/manage2.png" alt="" class = "main_image">
             <div class = "button-container">  
                 <div class = "button-item">
-                    <form action = "../course/addCourse/addCourse.php" method = "get">
+                    <form action = "../course/addCourse.php" method = "get">
                         <button type = "submit" name = "add_course_button" class = "default_button"><i class="fa-regular fa-plus"></i>Add Course</button>
                     </form>
                 </div>
                 <div class = "button-item">
-                    <form action = "../course/modifyCourse/modifyCourse.php" method = "get">
+                    <form action = "../course/modifyCourse.php" method = "get">
                         <button type = "submit" name = "modify_course_button" class = "default_button"><i class="fa-solid fa-pencil"></i>Modify Course</button>
                     </form>
                 </div>
                 <div class = "button-item">
-                    <form action = "../course/deleteCourse/deleteCourse.php" method = "get">
+                    <form action = "../course/deleteCourse.php" method = "get">
                         <button type = "submit" name = "delete_course_button" class = "default_button"><i class="fa-solid fa-trash"></i>Delete Course</button>
                     </form>
                 </div>

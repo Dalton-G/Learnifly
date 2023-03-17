@@ -17,7 +17,7 @@
         <!-- coloum 2 - center -->
         <div class="flexbox-item flexbox-item-2">
             <a href= "../../../Learnifly/homepage/homepage.php" class="navbar-link">Home</a> 
-            <a href="#" class="navbar-link">Study</a>
+            <a href= "#" class="navbar-link">Classes</a> 
             <a href="#" class="navbar-link">Hangout</a>
             <!-- dropdown-menu -->
             <div class="dropdown" data-dropdown>
