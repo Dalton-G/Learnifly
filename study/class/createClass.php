@@ -5,8 +5,8 @@
 
 <?php
     if (isset($_POST['btnCreate'])) {
-    $class = $_POST['txtClass'];
-    $intake = $_POST['txtIntake'];
+    $class = $_POST['txtClass']; //validation requried, 4 letters
+    $intake = $_POST['txtIntake']; //validation required, 4 integers
     $classname = $class.$intake;
     $query = "SELECT * FROM class WHERE class_name='$classname'";
     $results = mysqli_query($connection,$query);

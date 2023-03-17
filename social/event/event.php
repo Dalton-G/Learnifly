@@ -20,7 +20,6 @@ $result = mysqli_query ($connection, $sqlQuery);
     <title>Events</title>
 </head>
 
-<body>
 <div class="event-banner">
     <h2>Events</h2>
 </div>
@@ -31,7 +30,7 @@ $result = mysqli_query ($connection, $sqlQuery);
         while($row = mysqli_fetch_array($result)) {?>
         <div class="item-container">
             <div class="img-container">
-                <p class="title">
+                <p class="event-title">
                     <?php echo $row["event_name"]; ?>
                 </p>
                 <div class="separator"></div>
@@ -40,8 +39,7 @@ $result = mysqli_query ($connection, $sqlQuery);
                     echo date_format($dt, 'd M Y');
                     ?> 
                 </p>    
-            </div>
-                    
+            </div>         
             <div class="content-container">
                 <div class="overlay"></div>
                 <div class="event-info">
@@ -64,14 +62,16 @@ $result = mysqli_query ($connection, $sqlQuery);
                     </div>
                 </div>
             </div>
+        
             <button class="view">Join Now</button>
         </div>
         <?php $i++;} ?>
     </div>
 </div>
 
-</body>
 
+<div class="fix">
 <?php
     include ("../../../Learnifly/navbar/footer.php");
 ?> 
+</div>
