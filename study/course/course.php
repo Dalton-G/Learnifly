@@ -22,11 +22,6 @@
                         <button type = "submit" name = "modify_course_button" class = "default_button"><i class="fa-solid fa-pencil"></i>Modify Course</button>
                     </form>
                 </div>
-                <div class = "button-item">
-                    <form action = "../course/deleteCourse.php" method = "get">
-                        <button type = "submit" name = "delete_course_button" class = "default_button"><i class="fa-solid fa-trash"></i>Delete Course</button>
-                    </form>
-                </div>
             </div>
         </div>
 

@@ -47,7 +47,7 @@
                         <div class="dropdown-links">
                             <a href="#" class="dropdown-navbar-link">Manage Account</a>
                             <a href="../../../Learnifly/study/course/course.php" class="dropdown-navbar-link">Manage Course</a>
-                            <a href="#" class="dropdown-navbar-link">Manage Classroom</a>
+                            <a href="../../../Learnifly/study/class/class.php" class="dropdown-navbar-link">Manage Classes</a>
                         </div>
                     </div>
                     
