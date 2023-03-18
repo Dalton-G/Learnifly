@@ -1,35 +1,15 @@
 <?php
-    if (!isset($_SESSION)) {
-        session_start();
-    }
-    
-    $studentId = $_SESSION["user_id"];
     include ("../../../Learnifly/dbConnection/dbConnection.php");
     include ("../../../Learnifly/navbar/header.php");
+    $studentId = $_SESSION["user_id"];
+    $studentName = $_SESSION["user_name"];
 ?>
 
 <?php
-    $getCourse = "SELECT * FROM course WHERE user_id='$studentId'";
+    $getCourse = "SELECT * FROM course";
     $resultCourse = mysqli_query($connection,$getCourse);
-
-    $getStudent = "SELECT * FROM user WHERE user_id='$studentId'";
-    $resultStudent = mysqli_query($connection,$getStudent);
-    
     $rowCourse = mysqli_fetch_assoc($resultCourse);
-    $countCourse = mysqli_num_rows($resultCourse);
-    if ($countCourse == 1) {
-        $row['course_name'] = $course;
-    }else { 
-        echo'Course not registered';
-    }
 
-    $rowStudent = mysqli_fetch_assoc($resultStudent);
-    $countStudent = mysqli_num_rows($resultStudent);
-    if ($countStudent == 1) {
-        $row['user_name'] = $student;
-    }else { 
-        echo'Error';
-    }
 
     if (isset($_POST['btnSubmit'])) {
         $class = $_POST['txtStudent']; 
@@ -50,13 +30,17 @@
                 </div>
                 <form action="uploadCourse.php" method="POST" nctype = "multipart/form-data" class="contact-form">
                     <div class="input-wrap w-100">
-                        <input class="contact-input" type="text" name="txtStudent" value="<?php echo $student?>"/>
+                        <input class="contact-input" type="text" name="txtStudent" value="<?php echo $studentName?>"/>
                         <label>Student Name</label>
                         <i class="fa-solid fa-user"></i>
                     </div>
                     <div class="input-wrap w-100">
-                        <input class="contact-input" type="text" name="txtCourse" value="<?php echo $course?>"/>
-                        <label>Course</label>
+                    <label for="className">Class Name</label>
+                        <select class="contact-input" name="classId" id="className">
+
+                            <option value="<?php echo $category["course_name"]?>"></option>
+
+                        </select>
                         <i class="fa-solid fa-book"></i>
                     </div>
                     <div class="input-wrap w-100">

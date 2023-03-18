@@ -1,21 +1,16 @@
-<?php
-    if (!isset($_SESSION)) {
-        session_start();
-    }
-    
-    $studentId = $_SESSION["user_id"];
-    $user_role = $_SESSION["user_role"];
-
+a<?php
     include ("../../Learnifly/dbConnection/dbConnection.php");
     include ("../../Learnifly/navbar/header.php");
+    session_start();
+    $studentId = $_SESSION["user_id"];
+    $user_role = $_SESSION["user_role"];
 ?>
-<script src="calendar.js"></script>
+ 
+<!-- can remove everything, was just trying it -->
+
 <?php
     $getCourse = "SELECT * FROM course WHERE user_id='$studentId'";
     $resultCourse = mysqli_query($connection,$getCourse);
-
-    $getStudent = "SELECT * FROM user WHERE user_id='$studentId'";
-    $resultStudent = mysqli_query($connection,$getStudent);
     
     $rowCourse = mysqli_fetch_assoc($resultCourse);
     $countCourse = mysqli_num_rows($resultCourse);
@@ -25,13 +20,6 @@
         echo'Course not registered';
     }
 
-    $rowStudent = mysqli_fetch_assoc($resultStudent);
-    $countStudent = mysqli_num_rows($resultStudent);
-    if ($countStudent == 1) {
-        $row['user_name'] = $student;
-    }else { 
-        echo'Error';
-    }
 
     if (isset($_POST['btnSubmit'])) {
         $class = $_POST['txtStudent']; 
@@ -65,7 +53,6 @@
                         <input class="contact-input" type="text" name="txtStart" required/>
                         <label>Start Date</label>
                         <i class="fa-solid fa-book"></i>
-                        <?php include ("../../Learnifly/assignment/calendar.php"); ?>
                     </div>
                     <div class="input-wrap w-100">
                         <input class="contact-input" type="text" name="txtEnd" required/>
@@ -76,7 +63,7 @@
                         <!-- get course from previous page -->
                         <input class="contact-input" type="text" name="txtCourse" value="<?php echo $_GET["course_name"]?>"/> 
                         <label>Course</label> 
-                        <i class="fa-solid fa-calendar-days"></i>
+                        <i class=" "></i>
                     </div>
                     <div class="input-wrap w-100">
                         <input class="contact-input" type="file" name="txtFile" required/>
