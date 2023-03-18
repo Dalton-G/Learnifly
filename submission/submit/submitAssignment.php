@@ -1,10 +1,14 @@
 <?php
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+    
+    $studentId = $_SESSION["user_id"];
     include ("../../../Learnifly/dbConnection/dbConnection.php");
     include ("../../../Learnifly/navbar/header.php");
 ?>
 
 <?php
-    $_SESSION['user_id'] = $studentId;
     $getCourse = "SELECT * FROM course WHERE user_id='$studentId'";
     $resultCourse = mysqli_query($connection,$getCourse);
 
@@ -13,7 +17,7 @@
     
     $rowCourse = mysqli_fetch_assoc($resultCourse);
     $countCourse = mysqli_num_rows($resultCourse);
-    if ($count == 1) {
+    if ($countCourse == 1) {
         $row['course_name'] = $course;
     }else { 
         echo'Course not registered';
@@ -21,7 +25,7 @@
 
     $rowStudent = mysqli_fetch_assoc($resultStudent);
     $countStudent = mysqli_num_rows($resultStudent);
-    if ($count == 1) {
+    if ($countStudent == 1) {
         $row['user_name'] = $student;
     }else { 
         echo'Error';
@@ -48,25 +52,23 @@
                     <div class="input-wrap w-100">
                         <input class="contact-input" type="text" name="txtStudent" value="<?php echo $student?>"/>
                         <label>Student Name</label>
-                        <i class="fa-solid fa-landmark"></i>
+                        <i class="fa-solid fa-user"></i>
                     </div>
                     <div class="input-wrap w-100">
                         <input class="contact-input" type="text" name="txtCourse" value="<?php echo $course?>"/>
                         <label>Course</label>
-                        <i class="fa-solid fa-landmark"></i>
+                        <i class="fa-solid fa-book"></i>
                     </div>
                     <div class="input-wrap w-100">
-                        <input class="contact-input" type="integer" name="txtDate" required/>
+                        <input class="contact-input" type="integer" name="txtDate" value="<?php date_default_timezone_set("Asia/Kuala_Lumpur"); echo date("Y/m/d h:i:sa")?>"/>
                         <label>Submission Date</label>
                         <i class="fa-solid fa-calendar-days"></i>
                     </div>
                     <div class="input-wrap w-100">
                         <input class="contact-input" type="file" name="txtFile" required/>
-                        <label>Submission File</label>
-                        <i class="fa-solid fa-calendar-days"></i>
                     </div>
 
-                    <button class="btn" id="sign-up-btn" name="btnSubmit">Confirm</button>
+                    <button class="btn" id="sign-up-btn" name="btnSubmit">Submit</button>
                     
                 </form>
             </div>
