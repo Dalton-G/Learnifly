@@ -38,7 +38,7 @@
 		<div class="footer-right">
 			<p class="footer-company-about">
 				<span>About the company</span>
-				Learnifly is a Learning Management System (LMS) that aims to gamify learning and help students achieve greater heights 
+				Learnifly is a Learning Management System (LMS) that aims to simplify learning and help students achieve greater heights 
 				in their academics.
 			</p>
 
