@@ -1,3 +1,16 @@
+<?php
+include("../dbConnection/dbConnection.php");
+
+session_start();
+
+$_SESSION["user_id"] = 1;
+$_SESSION["user_role"] = "lecturer";
+
+$user_id = $_SESSION["user_id"];
+$user_role = $_SESSION["user_role"];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,52 +29,20 @@
         </div>
         <!-- coloum 2 - center -->
         <div class="flexbox-item flexbox-item-2">
-            <a href= "../../../Learnifly/homepage/homepage.php" class="navbar-link">Home</a> 
-            <a href="#" class="navbar-link">Study</a>
-            <a href="../../../Learnifly/social/event/event.php" class="navbar-link">Hangout</a>
-            <!-- dropdown-menu -->
-            <div class="dropdown" data-dropdown>
-                <button class="navbar-link" data-dropdown-button>More</button>
-                <div class="dropdown-menu information-grid">
-                    <!-- [2.1] academics dropdown section -->
-                    <div>
-                        <div class="dropdown-heading">Academics</div>
-                        <div class="dropdown-links">
-                            <a href="#" class="dropdown-navbar-link">Grades</a>
-                            <a href="#" class="dropdown-navbar-link">Interim Transcript</a>
-                        </div>
-                    </div>
-
-                    <!-- [2.2] my_purchase dropdown section -->
-                    <div>
-                        <div class="dropdown-heading">My Purchases</div>
-                        <div class="dropdown-links">
-                            <a href="#" class="dropdown-navbar-link">Order History</a>
-                            <a href="#" class="dropdown-navbar-link">Resources</a>
-                        </div>
-                    </div>
-
-                    <!-- [2.3] admin_function dropdown section -->
-                    <div>
-                        <div class="dropdown-heading">Admin Function</div>
-                        <div class="dropdown-links">
-                            <a href="#" class="dropdown-navbar-link">Manage Account</a>
-                            <a href="../../../Learnifly/study/course/course.php" class="dropdown-navbar-link">Manage Course</a>
-                            <a href="../../../Learnifly/study/class/class.php" class="dropdown-navbar-link">Manage Classes</a>
-                        </div>
-                    </div>
-                    
-                    <!-- [2.4] coursework dropdown section -->
-                    <div>
-                        <div class="dropdown-heading">Coursework</div>
-                        <div class="dropdown-links">
-                            <a href="#" class="dropdown-navbar-link">Assignment</a>
-                            <a href="#" class="dropdown-navbar-link">Exam</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+            <!-- admin only functions  !!!!!! -->
+            <?php if (isset($_SESSION['user_role'])) {
+                    if ($user_role == "admin") {
+                        echo "<a href= '../../../Learnifly/homepage/homepage.php' class='navbar-link'>Dashboard</a>";
+                        echo "<a href='#' class='navbar-link'>Class</a>";
+                        echo "<a href='#' class='navbar-link'>Course</a>";
+                        echo "<a href='#' class='navbar-link'>Account</a>";
+                    } else if ($user_role == "lecturer") {
+                        echo "<a href= '../../../Learnifly/homepage/homepage.php' class='navbar-link'>My Course</a>";
+                    } else if ($user_role == "student") {
+                        echo "<a href= '../../../Learnifly/homepage/homepage.php' class='navbar-link'>My Course</a>";
+                    }
+                }
+            ?>
         </div>
         <!-- coloum 3 - right -->
         <div class="flexbox-item flexbox-item-3">
