@@ -1,3 +1,8 @@
+<?php
+$user_id = $_SESSION["user_id"];
+$class_id = $_SESSION["class_id"];
+?>
+
 <head>
     <title>Dashboard</title>
 <body>
@@ -24,20 +29,20 @@
             <th>Grade</th>
         </tr>
         <?php
-            $courseDefaultQuery = "SELECT course.course_id, course.course_name, course.course_desc, class.class_name, user.user_name FROM ((course INNER JOIN class ON course.class_id = class.class_id) INNER JOIN user ON course.user_id = user.user_id)";
+            $courseDefaultQuery = "SELECT course.course_name, course.course_desc, course.course_resource, assignment.assignment_file, grade.grade_given FROM ((( course LEFT JOIN assignment ON course.course_id = assignment.course_id) LEFT JOIN submission ON course.course_id = submission.course_id) LEFT JOIN grade ON submission.submission_id = grade.submission_id) WHERE course.class_id = '$class_id'";
             $getCourseData = mysqli_query($connection, $courseDefaultQuery);
 
             if (isset($_GET['btnSubmit'])) {
                 $courseSearch = $_GET['txtCourseName'];
-                $courseSearchQuery = "SELECT course.course_id, course.course_name, course.course_desc, class.class_name, user.user_name FROM ((course INNER JOIN class ON course.course_id = class.class_id) INNER JOIN user ON course.user_id = user.user_id) WHERE course_name = '$courseSearch'";
+                $courseSearchQuery = "SELECT course.course_name, course.course_desc, course.course_resource, assignment.assignment_file, grade.grade_given FROM ((( course LEFT JOIN assignment ON course.course_id = assignment.course_id) LEFT JOIN submission ON course.course_id = submission.course_id) LEFT JOIN grade ON submission.submission_id = grade.submission_id) WHERE course.class_id = '$class_id' AND course_name = '$courseSearch'";
                 $getSearchedCourseData = mysqli_query($connection, $courseSearchQuery);
                 while ($row = mysqli_fetch_assoc($getSearchedCourseData)) {
                     echo 
-                    "<tr><td class='course-tb-id'>" . $row["course_id"] . 
-                    "</td><td class='course-tb-name'>" . $row["course_name"] .
-                    "</td><td class='course-tb-description'>" . $row["course_desc"] .
-                    "</td><td class='course-tb-class'>" . $row["class_name"] .
-                    "</td><td class='course-tb-lecturer'>" . $row["user_name"] .
+                    "<tr><td class='student-tb-courseName'>" . $row["course_name"] . 
+                    "</td><td class='student-tb-courseDesc'>" . $row["course_desc"] .
+                    "</td><td class='student-tb-courseResource'>" . $row["course_resource"] .
+                    "</td><td class='student-tb-courseAssignment'>" . $row["assignment_file"] .
+                    "</td><td class='student-tb-grade'>" . $row["grade_given"] .
                     "</td></td>";
                 }
                 echo "</table>";
@@ -45,11 +50,11 @@
             } else {
                 while ($row = $getCourseData -> fetch_assoc()) {
                     echo 
-                    "<tr><td class='course-tb-id'>" . $row["course_id"] . 
-                    "</td><td class='course-tb-name'>" . $row["course_name"] .
-                    "</td><td class='course-tb-description'>" . $row["course_desc"] .
-                    "</td><td class='course-tb-class'>" . $row["class_name"] .
-                    "</td><td class='course-tb-lecturer'>" . $row["user_name"] .
+                    "<tr><td class='student-tb-courseName'>" . $row["course_name"] . 
+                    "</td><td class='student-tb-courseDesc'>" . $row["course_desc"] .
+                    "</td><td class='student-tb-courseResource'>" . $row["course_resource"] .
+                    "</td><td class='student-tb-courseAssignment'>" . $row["assignment_file"] .
+                    "</td><td class='student-tb-grade'>" . $row["grade_given"] .
                     "</td></td>";
                 }
                 echo "</table>";
