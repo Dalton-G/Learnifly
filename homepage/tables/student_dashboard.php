@@ -41,8 +41,8 @@ include 'downloadCourse.php';
                     echo 
                     "<tr><td class='student-tb-courseName'>" . $row["course_name"] . 
                     "</td><td class='student-tb-courseDesc'>" . $row["course_desc"] .
-                    "</td><td class='student-tb-courseResource'>" . $row["course_resource"] .
-                    "</td><td class='student-tb-courseAssignment'>" . $row["assignment_file"] .
+                    "</td><td class='student-tb-courseResource'><a href='" . downloadCourse($row['course_resource']) . "' download>Download</a>" .
+                    "</td><td class='student-tb-courseAssignment'><a href='" . downloadAssignment($row['assignment_file']) . "' download>Download</a>" .
                     "</td><td class='student-tb-grade'>" . $row["grade_given"] .
                     "</td></td>";
                 }
