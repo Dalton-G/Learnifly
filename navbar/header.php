@@ -1,14 +1,11 @@
 <?php
-include("../dbConnection/dbConnection.php");
-
 session_start();
 
-$_SESSION["user_id"] = 1;
-$_SESSION["user_role"] = "lecturer";
+$_SESSION["user_id"] = 123;
+$_SESSION["user_role"] = "admin";
 
 $user_id = $_SESSION["user_id"];
 $user_role = $_SESSION["user_role"];
-
 ?>
 
 <!DOCTYPE html>
