@@ -16,7 +16,7 @@ font-family: 'Montserrat', sans-serif;
 @import url('../assignment/css/lightTheme.css'); /*    imported Bryan's CSS: create-assignment-page-light.css    */
 @import url('../study/course/course-light.css'); /* imported Ian's CSS: course-light.css */
 @import url('../social/event/event-light.css'); /*    imported Amadea's CSS: event-light.css    */
-@import url('../homepage/homepage-dark.css'); /* imported Dalton's CSS: homepage-light.css     */
+@import url('../homepage/homepage-light.css'); /* imported Dalton's CSS: homepage-light.css     */
 @import url('../registration/css/lightTheme.css'); /*    imported Bryan's CSS: registration-light.css    */
 @import url('../study/class/createClass-light.css'); /*    imported Amadea's CSS: createClass-light.css    */
 

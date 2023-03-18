@@ -34,11 +34,11 @@ $user_name = $_SESSION["user_name"];
                         echo "<a href='../../../Learnifly/study/course/course.php' class='navbar-link'>Course</a>";
                         echo "<a href='../../../Learnifly/registration/registration.php' class='navbar-link'>Account</a>";
                     } else if ($user_role == "lecturer") {
-                        echo "<a href= '../../../Learnifly/homepage/homepage.php' class='navbar-link'>My Course</a>";
+                        echo "<a href= '../../../Learnifly/homepage/homepage.php' class='navbar-link'>Home</a>";
                         echo "<a href= '../../../Learnifly/homepage/homepage.php' class='navbar-link'>View Submission</a>";
                         echo "<a href= '../../../Learnifly/homepage/homepage.php' class='navbar-link'>Create Assignment</a>";
                     } else if ($user_role == "student") {
-                        echo "<a href= '../../../Learnifly/homepage/homepage.php' class='navbar-link'>My Course</a>";
+                        echo "<a href= '../../../Learnifly/homepage/homepage.php' class='navbar-link'>Home</a>";
                         echo "<a href= '../../../Learnifly/submission/submit/submitAssignment.php' class='navbar-link'>Submit Assignment</a>";
                     }
                 }
