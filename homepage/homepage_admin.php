@@ -32,9 +32,9 @@
 
             if (isset($_GET['btnSubmit'])) {
                 $courseSearch = $_GET['txtCourseName'];
-                $courseSearchQuery = "SELECT course_id, course_name, course_desc, class_id, user_id FROM course WHERE course_name = '$course_search'";
+                $courseSearchQuery = "SELECT course_id, course_name, course_desc, class_id, user_id FROM course WHERE course_name = '$courseSearch'";
                 $getSearchedData = mysqli_query($connection, $courseSearchQuery);
-                while ($row = mysqli_fetch_assoc($getSearchData)) {
+                while ($row = mysqli_fetch_assoc($getSearchedData)) {
                     echo 
                     "<tr><td class=''>" . $row["course_id"] . 
                     "</td><td class=''>" . $row["course_name"] .
