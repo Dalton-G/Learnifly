@@ -52,7 +52,7 @@
                     echo 
                     "<tr><td class=''>" . $row["course_id"] . 
                     "</td><td class=''>" . $row["course_name"] .
-                    "</td><td class=''>" . $row["couse_desc"] .
+                    "</td><td class=''>" . $row["course_desc"] .
                     "</td><td class=''>" . $row["class_id"] .
                     "</td><td class='class=''>" . $row["user_id"] .
                     "</td></td>";
