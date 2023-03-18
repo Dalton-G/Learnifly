@@ -1,6 +1,7 @@
 <?php
 $user_id = $_SESSION["user_id"];
 $class_id = $_SESSION["class_id"];
+include 'downloadCourse.php';
 ?>
 
 <head>
@@ -52,8 +53,8 @@ $class_id = $_SESSION["class_id"];
                     echo 
                     "<tr><td class='student-tb-courseName'>" . $row["course_name"] . 
                     "</td><td class='student-tb-courseDesc'>" . $row["course_desc"] .
-                    "</td><td class='student-tb-courseResource'>" . $row["course_resource"] .
-                    "</td><td class='student-tb-courseAssignment'>" . $row["assignment_file"] .
+                    "</td><td class='student-tb-courseResource'><a href='" . downloadCourse($row['course_resource']) . "' download>Download</a>" .
+                    "</td><td class='student-tb-courseAssignment'>" . $row["assignment_file"] . 
                     "</td><td class='student-tb-grade'>" . $row["grade_given"] .
                     "</td></td>";
                 }
