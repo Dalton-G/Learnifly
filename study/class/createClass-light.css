@@ -41,6 +41,10 @@
     font-size: 1rem;
 }
 
+.forms-wrapper{
+    max-width: 32rem;
+}
+
 .contact-form{
     display: grid;
     margin-top: 2.55rem;
@@ -59,7 +63,7 @@
 
 .contact-input{
     width: 100%;
-    background-color: #dfdede;
+    background-color: #ececec;
     padding: 1.5rem 1.35rem calc(0.75rem - 2px) 1.35rem;
     border: none;
     outline: none;
@@ -78,7 +82,7 @@
     top: 50%;
     left: calc(1.35rem + 2px);
     transform: translateY(-50%);
-    color: #c4c4c4;
+    color: #929090;
     pointer-events: none;
 }
 
@@ -87,7 +91,13 @@
     right: calc(1.35rem + 2px);
     top: 50%;
     transform: translateY(-50%);
-    color: #c4c4c4;
+    color: #929090;
     pointer-events: none;
     font-size: 1.25rem;
+}
+
+.input-wrap.focus .contact-input{
+    background-color: aliceblue;
+    border: 2px solid #9a9aff;
+    box-shadow: 0 0 0 5px #929090;
 }

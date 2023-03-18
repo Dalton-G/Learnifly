@@ -39,36 +39,32 @@
     }
 ?>
 
-<section class="contact">
-    <div class="container">
-        <div class="left">
-            <div class="form-wrapper w-100">
-                <div class="contact-headling">  
-                    <h1>Create Class</h1>
+<div class="whole">
+    <div class="wrapper">
+        <div class="title">Create Class</div>
+            <form action="#" method="POST" class="contact-form">
+            <div class="field">
+                    <input type="text" name="txtClass" required/>
+                    <label>Class</label>
+                    <i class="fa-solid fa-landmark"></i>
                 </div>
-                <form action="#" method="POST" class="contact-form">
-                    <div class="input-wrap">
-                        <input class="contact-input" type="text" name="txtClass" required/>
-                        <label>Class</label>
-                        <i class="fa-solid fa-landmark"></i>
-                    </div>
-                    <div class="input-wrap w-100">
-                        <input class="contact-input" type="integer" name="txtIntake" required/>
-                        <label>Intake</label>
-                        <i class="fa-solid fa-calendar-days"></i>
-                    </div>
-                    <button class="btn" id="sign-up-btn" name="btnCreate">Confirm</button>
-                    
-                </form>
-            </div>
+                <div class="field">
+                    <input type="integer" name="txtIntake" required/>
+                    <label>Intake</label>
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+                <div class="field">
+                    <input type="submit" id="sign-up-btn" name="btnCreate"></type>
+                </div>
+            </form>  
         </div>
-        <div class="right"></div>
     </div>
-</section>
+</div>
 
 
 
-
+<div class="foot">
 <?php
     include ("../../../Learnifly/navbar/footer.php");
 ?>
+</div>
