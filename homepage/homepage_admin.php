@@ -5,7 +5,7 @@
     <title>Dashboard</title>
 <body>
 
-<div class="">
+<div class="course-table-filter">
     <h1 class="">View Courses</h1>
 
     <!-- Course Table -->
@@ -20,9 +20,9 @@
     <!-- result table -->
     <table>
         <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Desc</th>
+            <th>Course ID</th>
+            <th>Course Name</th>
+            <th>Course Description</th>
             <th>Class</th>
             <th>Lecturer</th>
         </tr>
