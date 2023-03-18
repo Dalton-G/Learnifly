@@ -2,6 +2,8 @@
     include ("../../../Learnifly/dbConnection/dbConnection.php");
     include ("../../../Learnifly/navbar/header.php");
 
+    $emptyString = "Select";
+
     $getLecturers = "SELECT * FROM `user` WHERE user_role = 'lecturer'";
     $lecturersArray = array();
     $queryLecturers = mysqli_query($connection, $getLecturers);
@@ -10,11 +12,13 @@
     $classesArray = array();
     $queryClasses = mysqli_query($connection, $getClasses);
 
-    while($lecturerName = mysqli_fetch_assoc($queryLecturers)['user_name']) { 
+    while($lecturer = mysqli_fetch_assoc($queryLecturers)) { 
+        $lecturerName = $lecturer['user_name']; 
         array_push($lecturersArray, $lecturerName);
     }
 
-    while($className = mysqli_fetch_assoc($queryClasses)['class_name']) { 
+    while($class = mysqli_fetch_assoc($queryClasses)) { 
+        $className = $class['class_name'];
         array_push($classesArray, $className);
     }
     
@@ -29,33 +33,28 @@
 
             Choose Lecturer: <select name="lecturerName" required>
                             <?php                        
-                                    $emptyString = "Select a Lecturer";
-
-                                    echo "<option value=\"$emptyString\" selected>$emptyString</option>";
                                     
+                                    echo "<option value=\"$emptyString\" selected>$emptyString</option>";
+
                                     foreach ($lecturersArray as $lecturer) {
                                         echo "<option value=\"$lecturer\">$lecturer</option>";
                                     }
                             ?>
                             </select><br>
             
-            Add Classes:  <?php 
-                                if ($classesArray != null) {
-                                    foreach ($classesArray as $class) {
-                                        echo "<label><input type=\"checkbox\" name=\"classes[]\" value=\"$class\">$class</label><br>";
-                                    }
-                                } else {
-                                    echo "<label>No Classes Exist</label><br>";
+            Select Class - <select name = "class" required>
+                            <?php
+                                echo "<option value=\"$emptyString\" selected>$emptyString</option>";
+                                foreach ($classesArray as $class) {
+                                    echo "<option value=\"$class\">$class</option>";
                                 }
-                                             
                             ?>
-                            <br>
-            
+                            </select><br>
+        
             Upload Course Image: <input type = "file" name = "courseImage" required> <br>
             <p style = "font-style: italic; font-size: 12px;">file types allowed - jpg, jpeg, png, jfif, pdf, gif</p>
             <p style = "font-style: italic; font-size: 12px;">It is ideal to choose an image with a 1:1 aspect ratio</p>
-            Upload Course Resource: <input type = "file" name = "courseResource" required>
-            <p style = "font-style: italic; font-size: 12px;">file types allowed - pdf, pptx, docx, xlsx</p>
+            Upload Course Resource: <input type = "file" name = "courseResource" required><br>
             <button type = "submit" name = "submit" class = "">Upload</button>
         </form>
     </div>
