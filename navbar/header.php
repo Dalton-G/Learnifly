@@ -1,8 +1,7 @@
 <?php
-session_start();
-
-$_SESSION["user_id"] = 123;
-$_SESSION["user_role"] = "admin";
+if (!isset($_SESSION)) {
+    session_start();
+}
 
 $user_id = $_SESSION["user_id"];
 $user_role = $_SESSION["user_role"];
@@ -51,7 +50,7 @@ $user_role = $_SESSION["user_role"];
                     <div>
                         <div class="dropdown-heading">Account</div>
                         <div class="dropdown-links">
-                            <a href="#" class="dropdown-navbar-link">Log Out</a>
+                            <a href="../login/logout.php" class="dropdown-navbar-link">Log Out</a>
                         </div>
                     </div>
                     <!-- profile dropdown list ends -->
