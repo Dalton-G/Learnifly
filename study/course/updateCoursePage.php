@@ -19,7 +19,7 @@
 
     if ($courseName == "Select") {
         echo '<script type="text/JavaScript">  
-        alert("A Course must be selected, please choose one");
+        alert("A Course must be selected, please choose a course");
         window.location = ("modifyCoursesPage.php");
         </script>';
     }
@@ -67,10 +67,10 @@
                 Lecturer Assigned: <span><?=$lecturerName?></span>
             </div>
         </div>
-
+        <br>
         <form action = "updateCourse.php" method = "post" class = "" enctype = "multipart/form-data">
             <input type = "hidden" name = "classID" value = "<?=$classID?>">
-            Modify Description: <input type = "text" name = "courseDescription" required value = "<?= $courseDescription; ?>"> <br>
+            Modify Description: <input type = "text" name = "courseDescription" required value = "<?= $courseDescription; ?>" required> <br>
             Change Resource File: <input type = "file" name = "courseResource"> <br>
             Change Lecturer: <select name="lecturerName" required>
                             <?php                          
