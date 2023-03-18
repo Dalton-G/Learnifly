@@ -32,13 +32,12 @@
             Course Description: <input type = "text" name = "courseDesc" required> <br>
 
             Choose Lecturer: <select name="lecturerName" required>
-                            <?php                        
-                                    
-                                    echo "<option value=\"$emptyString\" selected>$emptyString</option>";
+                            <?php                          
+                                echo "<option value=\"$emptyString\" selected>$emptyString</option>";
 
-                                    foreach ($lecturersArray as $lecturer) {
-                                        echo "<option value=\"$lecturer\">$lecturer</option>";
-                                    }
+                                foreach ($lecturersArray as $lecturer) {
+                                    echo "<option value=\"$lecturer\">$lecturer</option>";
+                                }
                             ?>
                             </select><br>
             
@@ -55,7 +54,7 @@
             <p style = "font-style: italic; font-size: 12px;">file types allowed - jpg, jpeg, png, jfif, pdf, gif</p>
             <p style = "font-style: italic; font-size: 12px;">It is ideal to choose an image with a 1:1 aspect ratio</p>
             Upload Course Resource: <input type = "file" name = "courseResource" required><br>
-            <button type = "submit" name = "submit" class = "">Upload</button>
+            <button type = "submit" name = "submit" class = "">Submit</button>
         </form>
     </div>
 
