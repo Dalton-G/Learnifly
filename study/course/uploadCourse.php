@@ -1,5 +1,7 @@
 <?php
 
+    // IF STATEMENT FOR && IF STATEMENT WHEN LECTURER + COURSE NAME ALREADY EXIST IN DB
+
     include '../../dbConnection/dbConnection.php';
 
     $classID = '1'; // IMPORTANT!!! REPLACE THESE WITH SESSION VARIABLES!!!!!
@@ -11,6 +13,7 @@
         $courseDesc = $_POST['courseDesc'];
         $courseImage = $_FILES['courseImage'];
         $courseResource = $_FILES['courseResource'];
+        $courseLecturer = $_POST['lecturerName'];
 
         $imageName = $courseImage["name"];
         $tempImageName = $courseImage["tmp_name"];

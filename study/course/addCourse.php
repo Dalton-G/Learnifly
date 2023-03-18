@@ -6,14 +6,18 @@
     $lecturersArray = array();
     $queryLecturers = mysqli_query($connection, $getLecturers);
 
-    if (mysqli_fetch_assoc($queryLecturers) != null) {  // If Lecturers exist, loop through and push to array
-        while($lecturerName = mysqli_fetch_assoc($queryLecturers)['user_name']) {
-            array_push($lecturersArray, $lecturerName);
-        }
-    } else {
-        // Do Nothing
+    $getClasses = "SELECT * FROM `class`";
+    $classesArray = array();
+    $queryClasses = mysqli_query($connection, $getClasses);
+
+    while($lecturerName = mysqli_fetch_assoc($queryLecturers)['user_name']) { 
+        array_push($lecturersArray, $lecturerName);
     }
 
+    while($className = mysqli_fetch_assoc($queryClasses)['class_name']) { 
+        array_push($classesArray, $className);
+    }
+    
 ?>
     
     <h1>Add Course</h1>
@@ -23,14 +27,30 @@
             Course Name: <input type = "text" name = "courseName" required> <br> 
             Course Description: <input type = "text" name = "courseDesc" required> <br>
 
-            Choose Lecturer: <select name="lecturer" required>
-                            <?php
-                                foreach ($lecturersArray as $lecturer) {
-                                    echo "<option value=\"$lecturer\">$lecturer</option>";
-                                }
+            Choose Lecturer: <select name="lecturerName" required>
+                            <?php                        
+                                    $emptyString = "Select a Lecturer";
+
+                                    echo "<option value=\"$emptyString\" selected>$emptyString</option>";
+                                    
+                                    foreach ($lecturersArray as $lecturer) {
+                                        echo "<option value=\"$lecturer\">$lecturer</option>";
+                                    }
                             ?>
                             </select><br>
-
+            
+            Add Classes:  <?php 
+                                if ($classesArray != null) {
+                                    foreach ($classesArray as $class) {
+                                        echo "<label><input type=\"checkbox\" name=\"classes[]\" value=\"$class\">$class</label><br>";
+                                    }
+                                } else {
+                                    echo "<label>No Classes Exist</label><br>";
+                                }
+                                             
+                            ?>
+                            <br>
+            
             Upload Course Image: <input type = "file" name = "courseImage" required> <br>
             <p style = "font-style: italic; font-size: 12px;">file types allowed - jpg, jpeg, png, jfif, pdf, gif</p>
             <p style = "font-style: italic; font-size: 12px;">It is ideal to choose an image with a 1:1 aspect ratio</p>
