@@ -13,62 +13,59 @@ if (!(isset($_SESSION["user_id"]) && isset($_SESSION["user_role"]))) {
 ?>
 
 <?php
-$query = $con->query("SELECT * FROM class");
+$query = $con->query("SELECT * FROM course");
 
 ?>
 
 <head>
-    <script src="js/registration.js" defer></script>
-    <title>Registration</title>
+    <script src="js/createAssignment.js" defer></script>
+    <title>Create assignment</title>
 </head>
 <div class="create-assignment-page">
-    <section class="registration-section">
-        <h2 class="title">📝 Register a user</h2>
+    <section class="assignment-section">
+        <h2 class="title">📜 Create assignment</h2>
         <div class="error-msg">
             <!-- Generated message -->
         </div>
-        <form action="" class="form">
-
-            <div class="credential">
-                <label for="role">User Role</label>
-                <select name="role" id="role">
-                    <option value="student">Student</option>
-                    <option value="lecturer">Lecturer</option>
-                </select>
-            </div>
-            <div class="credential">
-                <label for="fName">First Name</label>
-                <input id="fName" name="fName" type="text" />
-            </div>
-            <div class="credential">
-                <label for="lName">Last Name</label>
-                <input id="lName" name="lName" type="text" />
-            </div>
-            <div class="credential">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="text" />
-            </div>
-            <div class="credential">
-                <label for="password">Password</label>
-                <input id="password" name="password" type="text" />
-                <i class="fa-solid fa-arrows-rotate pass-generate-icon" title="Generate a random password"></i>
-            </div>
-            <div class="credential">
-                <label for="className">Class Name</label>
-                <select name="classId" id="className" onmousedown="if(this.options.length>4){this.size=4;}"  onchange='this.size=0;' onblur="this.size=0;">
-                    <option value="">-- Select a class --</option>
+        <form action="" class="form" enctype="multipart/form-data">
+            <div class="non-date-input">
+                <label for="courseName">Course</label>
+                <select name="courseId" id="courseName" onmousedown="if(this.options.length>4){this.size=4;}" onchange='this.size=0;' onblur="this.size=0;">
+                    <option value="">-- Select a course --</option>
                     <?php
                     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                        echo "<option value=' {$row['class_id']} '>{$row['class_name']}</option>";
+                        echo "<option value=' {$row['course_id']} '>{$row['course_name']}</option>";
                     }
                     ?>
                 </select>
             </div>
-            <button class="create-btn">Create Account</button>
+            <div class="non-date-input">
+                <label for="assignment-name">Assignment Name</label>
+                <input id="assignment-name" name="assignmentName" type="text" />
+            </div>
+            <div class="non-date-input">
+                <label for="description">Description</label>
+                <input id="description" name="assignmentDescription" type="text" />
+            </div>
+            <div class="date-input">
+                <label for="start-date">Start Date</label>
+                <input id="start-date" name="startDate" type="date" />
+                <input name="startTime" type="time">
+            </div>
+            <div class="date-input">
+                <label for="end-date">End Date</label>
+                <input id="end-date" name="endDate" type="date" />
+                <input name="endTime" type="time">
+            </div>
+            <div class="non-date-input">
+                <label for="assignment">Assignment Question</label>
+                <input id="assignment" name="assignmentFile" type="file" />
+            </div>
+
+            <button class="create-btn">Create assignment</button>
         </form>
     </section>
 </div>
-
 
 <?php
 require_once("../../Learnifly/navbar/footer.php");
