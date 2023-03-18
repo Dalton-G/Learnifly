@@ -15,7 +15,7 @@ font-family: 'Montserrat', sans-serif;
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 
-.registration-page {
+.create-assignment-page {
     display: flex;
     justify-content: center; 
     background-color: #fffdfd;
@@ -24,7 +24,7 @@ font-family: 'Montserrat', sans-serif;
     color: #424549;
 } 
 
-.registration-page .registration-section {
+.create-assignment-page .registration-section {
     display: flex;
     flex-direction: column;
     min-width: 40%;
@@ -34,12 +34,12 @@ font-family: 'Montserrat', sans-serif;
     border-radius: 1rem;
 }
 
-.registration-page .registration-section .title {
+.create-assignment-page .registration-section .title {
     text-align: center;
     margin-bottom: 50px;
 }
 
-.registration-page .registration-section .error-msg{
+.create-assignment-page .registration-section .error-msg{
     display: none;
     color: #f00;
     background-color: #fc87a444;
@@ -55,7 +55,7 @@ font-family: 'Montserrat', sans-serif;
     margin-block: 1em;
 }
 
-.registration-page .registration-section .form {
+.create-assignment-page .registration-section .form {
     display: flex;
     flex-direction: column;
     gap: 20px;
