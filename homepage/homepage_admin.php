@@ -27,34 +27,41 @@
             <th>Lecturer</th>
         </tr>
         <?php
-            $courseDefaultQuery = "SELECT course_id, course_name, course_desc, class_id, user_id FROM course ORDER BY course_id ASC";
+            $courseDefaultQuery = "SELECT 
+            course.course_id, 
+            course.course_name, 
+            course.course_desc, 
+            class.class_name, 
+            user.user_name 
+        FROM 
+            ((course 
+            INNER JOIN class ON course.class_id = class.class_id) 
+            INNER JOIN user ON course.user_id = user.user_id);";
             $getCourseData = mysqli_query($connection, $courseDefaultQuery);
 
             if (isset($_GET['btnSubmit'])) {
                 $courseSearch = $_GET['txtCourseName'];
-                $courseSearchQuery = "SELECT course_id, course_name, course_desc, class_id, user_id FROM course WHERE course_name = '$courseSearch'";
+                $courseSearchQuery = "SELECT course.course_id, course.course_name, course.course_desc, class.class_name, user.user_name FROM ((course INNER JOIN class ON course.course_id = class.class_id) INNER JOIN user ON course.user_id = user.user_id) WHERE course_name = '$courseSearch'";
                 $getSearchedData = mysqli_query($connection, $courseSearchQuery);
                 while ($row = mysqli_fetch_assoc($getSearchedData)) {
                     echo 
                     "<tr><td class=''>" . $row["course_id"] . 
                     "</td><td class=''>" . $row["course_name"] .
                     "</td><td class=''>" . $row["course_desc"] .
-                    "</td><td class=''>" . $row["class_id"] .
-                    "</td><td class=''>" . $row["user_id"] .
+                    "</td><td class=''>" . $row["class_name"] .
+                    "</td><td class=''>" . $row["user_name"] .
                     "</td></td>";
                 }
                 echo "</table>";
 
             } else {
-                $courseDefaultDataQuery = "SELECT course_id, course_name, course_desc, class_id, user_id FROM inquiries";
-                $getCourseRowData = mysqli_query($connection, $courseDefaultQuery);
-                while ($row = $getCourseRowData -> fetch_assoc()) {
+                while ($row = $getCourseData -> fetch_assoc()) {
                     echo 
                     "<tr><td class=''>" . $row["course_id"] . 
                     "</td><td class=''>" . $row["course_name"] .
                     "</td><td class=''>" . $row["course_desc"] .
-                    "</td><td class=''>" . $row["class_id"] .
-                    "</td><td class='class=''>" . $row["user_id"] .
+                    "</td><td class=''>" . $row["class_name"] .
+                    "</td><td class='class=''>" . $row["user_name"] .
                     "</td></td>";
                 }
                 echo "</table>";
