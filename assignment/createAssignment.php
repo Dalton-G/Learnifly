@@ -19,9 +19,9 @@ $query = $con->query("SELECT * FROM class");
 
 <head>
     <script src="js/registration.js" defer></script>
-    <title>Registration</title>
+    <title>Create Assignment</title>
 </head>
-<div class="create-assignment-page">
+<div class="registration-page">
     <section class="registration-section">
         <h2 class="title">📝 Register a user</h2>
         <div class="error-msg">
