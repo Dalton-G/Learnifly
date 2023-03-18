@@ -29,7 +29,7 @@ $user_role = $_SESSION["user_role"];
             <!-- admin only functions  !!!!!! -->
             <?php if (isset($_SESSION['user_role'])) {
                     if ($user_role == "admin") {
-                        echo "<a href= '../../../Learnifly/homepage/homepage.php' class='navbar-link'>Dashboard</a>";
+                        echo "<a href= '../../../Learnifly/homepage/homepage_admin.php' class='navbar-link'>Dashboard</a>";
                         echo "<a href='../../../Learnifly/study/class/class.php' class='navbar-link'>Class</a>";
                         echo "<a href='../../../Learnifly/study/course/course.php' class='navbar-link'>Course</a>";
                         echo "<a href='#' class='navbar-link'>Account</a>";
