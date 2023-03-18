@@ -27,5 +27,6 @@
 
 
 <?php
+    mysqli_close($connection);
     include ("../../../Learnifly/navbar/footer.php");
 ?>

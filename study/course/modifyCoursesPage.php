@@ -8,6 +8,8 @@
     $queryCourse = mysqli_query($connection, $getCourses);
     $courseNameArray = array();
 
+    
+
     foreach ($queryCourse as $course) {
         array_push($courseNameArray, $course['course_name']);
     }
@@ -18,6 +20,7 @@
 
     <form action = "updateCoursePage.php" class = "" method = "post" enctype = "multipart/form-data">
         Choose Course: <select name="courseName" required>
+                        
                         <?php                             
                             echo "<option value=\"$emptyString\" selected>$emptyString</option>";
                             foreach ($courseNameArray as $courseName) {
@@ -28,9 +31,7 @@
                         <button type = "submit" name = "submit" class = "">Submit</button>
     </form>
     
-    
-
-
 <?php
+    mysqli_close($connection);
     include ("../../../Learnifly/navbar/footer.php");
 ?>
