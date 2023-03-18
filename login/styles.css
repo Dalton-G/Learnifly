@@ -1,0 +1,361 @@
+/**************************
+Author: Bryan Wong Win Kit
+TP No: TP063248
+Subject: Login and Reset Password CSS
+**************************/
+
+/**************************
+F O N T - U S E D:
+font-family: 'League Spartan', sans-serif;
+font-family: 'Montserrat', sans-serif;
+**************************/
+
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f5f5f5;
+
+}
+
+.login-section {
+    display: flex;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 1rem;
+    background-color: #fff;
+    max-width: 832px;
+}
+
+.login-section .left-side{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center ;
+    flex: 1;
+}
+
+.login-section .left-side .description-div{
+    position: absolute;
+    top: 50px;
+    text-align: center;
+}
+
+.login-section .description-div img{
+    width: 170px;
+}
+
+.login-section .description-div p{
+    font-size: 0.9rem;
+    color: #999797;
+}      
+
+.login-section .left-side .credentials{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-top: 4em;
+    gap: 20px;
+}
+
+.login-section .credentials .input{
+    position: relative;
+}
+  
+
+.login-section .credentials label{
+    display: inline-block; /* Respect margin and width */
+    margin-bottom: 10px;
+    user-select: none;   /* Prevents highlight */
+    color: #333; 
+}
+
+.login-section .credentials .error-msg{
+    display: none;
+    color: #f00;
+    background-color: #fc87a444;
+    font-size: 0.95rem;
+    align-self: center;
+    padding: 10px 24px;
+    border-radius: 0.5rem;
+}
+
+
+.login-section .credentials input{
+    padding: 8px 28px 8px 8px;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid #ccd0f8;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, 
+                rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+.login-section .credentials input:focus{
+    outline: none;
+    border: 1px solid #8993fd;
+}
+
+/* Password Icon */
+.login-section .credentials .icon{
+    position: absolute;
+    top: 70%;
+    transform: translateY(-50%);
+    right: 10px;
+    cursor: pointer;
+}
+
+/* Show/hide password icon */
+.login-section .credentials .icon.active::before{
+    content: "\f070";
+}
+
+
+.login-section .credentials button{
+    font-family: 'Montserrat', sans-serif;
+    background-color: #a363f7;
+    color: #fff;
+    height: 42px;
+    border: none;
+    border-radius: 0.3rem;
+    font-weight: 500;
+    margin-top: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    box-shadow: rgba(61, 63, 66, 0.3) 0px 1px 2px 0px, 
+                rgba(61, 63, 66, 0.15) 0px 1px 3px 1px;
+}
+
+.login-section .credentials button:hover {
+    background-color: #8730f8;
+}
+
+.login-section .left-side a{
+    display: block;
+    letter-spacing: -0.8px;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+.login-section .left-side a:hover{
+    text-decoration: underline;
+}
+
+.login-section .right-side{
+    flex: 1;
+    position: relative;
+} 
+
+
+.login-section .cover-img img{
+    object-fit: contain;
+    width: 100%;
+    display: block; /* Remove bottom gap */
+    border-radius: 0 1rem 1rem 0;
+} 
+
+/* Testimony container */
+.login-section .right-side .testimony-div {
+    position: absolute;
+    bottom: 50px;
+    left: 5%;
+    width: 90%;
+    backdrop-filter: blur(50px);
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    line-height: 24px;
+}
+
+
+/* Reset password section */
+.password-section {
+    display: flex;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 1rem;
+    background-color: #fff;
+    max-width: 832px;
+}
+
+.password-section .right-side{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center ;
+    flex: 1;
+}
+
+.password-section .right-side .description-div{
+    position: absolute;
+    top: 40px;
+    text-align: center;
+}
+
+.password-section .description-div img{
+    width: 50px;
+}
+
+.password-section .description-div h3{
+    padding-bottom: 20px;
+}
+
+.password-section .description-div p{
+    font-size: 0.9rem;
+    color: #999797;
+}      
+
+.password-section .right-side .credentials{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-top: 6em;
+}
+
+.password-section .credentials .input{
+    position: relative;
+    margin-top: 20px;
+}
+
+.password-section .credentials .input:nth-of-type(1){
+    margin-top: 10px; /* Override to smaller margin */
+}
+
+.password-section .credentials label{
+    display: inline-block; /* Respect margin and width */
+    margin-bottom: 10px;
+    user-select: none;   /* Prevents highlight */
+    color: #333; 
+}
+
+.password-section .credentials .error-msg{
+    display: none;
+    color: #f00;
+    background-color: #fc87a444;
+    font-size: 0.95rem;
+    align-self: center;
+    padding: 10px 24px;
+    border-radius: 0.5rem;
+}
+
+
+.password-section .credentials input{
+    padding: 8px 28px 8px 8px;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid #ccd0f8;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, 
+                rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+.password-section .credentials input:focus{
+    outline: none;
+    border: 1px solid #8993fd;
+}
+
+/* Password icon */
+.password-section .credentials :is(.icon, .cpassword-icon)
+{
+    position: absolute;
+    top: 70%;
+    transform: translateY(-50%);
+    right: 10px;
+    cursor: pointer;
+}
+
+/* Show password icon */
+.password-section .credentials :is(.icon, .cpassword-icon).active::before{
+    content: "\f070";
+}
+
+
+.password-section .credentials button{
+    font-family: 'Montserrat', sans-serif;
+    background-color: #a363f7;
+    color: #fff;
+    height: 42px;
+    border: none;
+    border-radius: 0.3rem;
+    font-weight: 500;
+    margin-top: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    box-shadow: rgba(61, 63, 66, 0.3) 0px 1px 2px 0px, 
+                rgba(61, 63, 66, 0.15) 0px 1px 3px 1px;
+    margin-top: 20px;
+}
+
+.password-section .credentials button:hover {
+    background-color: #8730f8;
+}
+
+.password-section .right-side a{
+    display: block;
+    letter-spacing: -0.8px;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+.password-section .right-side a:hover{
+    text-decoration: underline;
+}
+
+.password-section .left-side{
+    flex: 1;
+    position: relative;
+} 
+
+
+.password-section .cover-img img{
+    object-fit: contain;
+    width: 100%;
+    display: block;
+    border-radius: 1rem 0 0 1rem;
+}
+
+
+/* Testimony container */
+.password-section .left-side .testimony-div {
+    position: absolute;
+    bottom: 50px;
+    left: 5%;
+    width: 90%;
+    backdrop-filter: blur(50px);
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    line-height: 24px;
+}

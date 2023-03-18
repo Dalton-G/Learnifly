@@ -37,7 +37,7 @@ font-family: 'Montserrat', sans-serif;
 }
 
 .button-container {
-    margin-top: 180px;
+    margin-top: 200px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

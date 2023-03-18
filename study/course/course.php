@@ -18,7 +18,7 @@
                     </form>
                 </div>
                 <div class = "button-item">
-                    <form action = "../course/modifyCourse.php" method = "get">
+                    <form action = "../course/modifyCoursesPage.php" method = "get">
                         <button type = "submit" name = "modify_course_button" class = "default_button"><i class="fa-solid fa-pencil"></i>Modify Course</button>
                     </form>
                 </div>
