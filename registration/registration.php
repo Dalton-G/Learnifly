@@ -6,6 +6,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
+// Redirect user to login page if not logged in
 if (!(isset($_SESSION["user_id"]) && isset($_SESSION["user_role"]))) {
     header("Location:../login/login.php");
 }
@@ -20,7 +21,7 @@ $query = $con->query("SELECT * FROM class");
     <script src="js/registration.js" defer></script>
     <title>Registration</title>
 </head>
-<div class="registration-page">
+<div class="create-assignment-page">
     <section class="registration-section">
         <h2 class="title">📝 Register a user</h2>
         <div class="error-msg">
