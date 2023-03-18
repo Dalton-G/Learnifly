@@ -1,8 +1,7 @@
 <?php
-session_start();
-
-$_SESSION["user_id"] = 123;
-$_SESSION["user_role"] = "admin";
+if (!isset($_SESSION)) {
+    session_start();
+}
 
 $user_id = $_SESSION["user_id"];
 $user_role = $_SESSION["user_role"];
@@ -32,7 +31,7 @@ $user_role = $_SESSION["user_role"];
                         echo "<a href= '../../../Learnifly/homepage/homepage_admin.php' class='navbar-link'>Dashboard</a>";
                         echo "<a href='../../../Learnifly/study/class/class.php' class='navbar-link'>Class</a>";
                         echo "<a href='../../../Learnifly/study/course/course.php' class='navbar-link'>Course</a>";
-                        echo "<a href='#' class='navbar-link'>Account</a>";
+                        echo "<a href='../../../Learnifly/registration/registration.php' class='navbar-link'>Account</a>";
                     } else if ($user_role == "lecturer") {
                         echo "<a href= '../../../Learnifly/homepage/homepage.php' class='navbar-link'>My Course</a>";
                     } else if ($user_role == "student") {
@@ -51,7 +50,7 @@ $user_role = $_SESSION["user_role"];
                     <div>
                         <div class="dropdown-heading">Account</div>
                         <div class="dropdown-links">
-                            <a href="#" class="dropdown-navbar-link">Log Out</a>
+                            <a href="../login/logout.php" class="dropdown-navbar-link">Log Out</a>
                         </div>
                     </div>
                     <!-- profile dropdown list ends -->
