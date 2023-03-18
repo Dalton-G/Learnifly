@@ -8,9 +8,7 @@
 		<div class="footer-left">
 			<h3>Learnifly.</h3>
 			<p class="footer-links">
-				<a href="#" class="link-1">Home</a>
-				<a href="#">Study</a>
-				<a href="#">Hangout</a>
+				<a href="#" class="link-1">Return to Top</a>
 			</p>
 			<p class="footer-company-name">
 				All Rights Reserved © Team Acme 2023 <br>

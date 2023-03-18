@@ -1,10 +1,18 @@
+<?php
+$user_id = $_SESSION["user_id"];
+$class_id = $_SESSION["class_id"];
+$user_name = $_SESSION["user_name"];
+include 'downloadFiles.php';
+?>
+
 <head>
     <title>Dashboard</title>
 <body>
 
 <!-- [1] view course -->
 <div class="dashboard-filter">
-    <h1 class="dashboard-header">Dashboard</h1>
+    <h1 class="dashboard-header">Welcome back!</h1>
+    <?php echo "<h2 class='dashboard-h2'>" . $user_name . "</h2>" ?>
     <div class="dashboard-line"></div>
 
     <div class="dashboard-search-div">
@@ -12,32 +20,30 @@
             <input type="text" class="dashboard-search-TF" placeholder="Search Course Name" name="txtCourseName" required><br>
             <input type="submit" value="Search" name="btnSubmit" class="dashboard-btn-1">
         </form>
-        <a href="../../../Learnifly/homepage/homepage_admin.php"><button class="dashboard-btn-2">Reset</button></a>
+        <a href="../../../Learnifly/homepage/homepage.php"><button class="dashboard-btn-2">Reset</button></a>
     </div>
 
     <table>
         <tr>
-            <th>Course ID</th>
             <th>Course Name</th>
-            <th>Course Description</th>
-            <th>Class</th>
-            <th>Lecturer</th>
+            <th>Course Desc</th>
+            <th>Course Resource</th>
+            <th>Course Assignments</th>
         </tr>
         <?php
-            $courseDefaultQuery = "SELECT course.course_id, course.course_name, course.course_desc, class.class_name, user.user_name FROM ((course INNER JOIN class ON course.class_id = class.class_id) INNER JOIN user ON course.user_id = user.user_id)";
+            $courseDefaultQuery = "SELECT course.course_name, course.course_desc, course.course_resource, assignment.assignment_file FROM ( course LEFT JOIN assignment ON course.course_id = assignment.course_id) WHERE course.user_id = '$user_id'";
             $getCourseData = mysqli_query($connection, $courseDefaultQuery);
 
             if (isset($_GET['btnSubmit'])) {
                 $courseSearch = $_GET['txtCourseName'];
-                $courseSearchQuery = "SELECT course.course_id, course.course_name, course.course_desc, class.class_name, user.user_name FROM ((course INNER JOIN class ON course.course_id = class.class_id) INNER JOIN user ON course.user_id = user.user_id) WHERE course_name = '$courseSearch'";
+                $courseSearchQuery = "SELECT course.course_name, course.course_desc, course.course_resource, assignment.assignment_file FROM ( course LEFT JOIN assignment ON course.course_id = assignment.course_id) WHERE course.user_id = '$user_id' AND course_name = '$courseSearch'";
                 $getSearchedCourseData = mysqli_query($connection, $courseSearchQuery);
                 while ($row = mysqli_fetch_assoc($getSearchedCourseData)) {
                     echo 
-                    "<tr><td class='course-tb-id'>" . $row["course_id"] . 
-                    "</td><td class='course-tb-name'>" . $row["course_name"] .
-                    "</td><td class='course-tb-description'>" . $row["course_desc"] .
-                    "</td><td class='course-tb-class'>" . $row["class_name"] .
-                    "</td><td class='course-tb-lecturer'>" . $row["user_name"] .
+                    "<tr><td>" . $row["course_name"] . 
+                    "</td><td>" . $row["course_desc"] .
+                    "</td><td>" . downloadCourse($row['course_resource']) .
+                    "</td><td>" . downloadAssignment($row['assignment_file']) . 
                     "</td></td>";
                 }
                 echo "</table>";
@@ -45,11 +51,10 @@
             } else {
                 while ($row = $getCourseData -> fetch_assoc()) {
                     echo 
-                    "<tr><td class='course-tb-id'>" . $row["course_id"] . 
-                    "</td><td class='course-tb-name'>" . $row["course_name"] .
-                    "</td><td class='course-tb-description'>" . $row["course_desc"] .
-                    "</td><td class='course-tb-class'>" . $row["class_name"] .
-                    "</td><td class='course-tb-lecturer'>" . $row["user_name"] .
+                    "<tr><td>" . $row["course_name"] . 
+                    "</td><td>" . $row["course_desc"] .
+                    "</td><td>" . downloadCourse($row['course_resource']) .
+                    "</td><td>" . downloadAssignment($row['assignment_file']) . 
                     "</td></td>";
                 }
                 echo "</table>";
