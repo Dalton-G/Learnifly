@@ -4,3 +4,168 @@ TP No: TP063338
 Subject: Homepage Dark Theme
 **************************/
 
+/**************************
+F O N T - U S E D:
+font-family: 'League Spartan', sans-serif;
+font-family: 'Montserrat', sans-serif;
+**************************/
+
+:root {
+    --icon-theme-color: #f1c40f;
+    --icon-logo-color: #edf0f1;
+
+    --header-background: #272837;
+    --body-background: #36393e;
+
+    --slider-ball: #edf0f1;
+    --slider-background: #424549;
+
+    --nav-text-inactive: #edf0f1;
+    --nav-text-active: #AB9DBB;
+    
+    --dropdown-box-background: #272837;
+    --dropdown-box-shadow: 0 2px 5px 0 rgba(255, 255, 255, .1);
+
+    --table-text: #272837;
+    --table-bg: #edf0f1;
+}
+
+.dashboard-filter {
+    background: var(--body-background);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.dashboard-header {
+    color: var(--nav-text-inactive);
+    font-family: 'League Spartan', sans-serif;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.dashboard-line {
+    width: 100px;
+    height: 10px;
+    background: var(--nav-text-active);
+    margin: 40px auto;
+}
+
+.dashboard-filter table {
+    border-collapse: collapse;
+    width: 65%;
+    color: var(--table-text);
+    background: var(--table-bg);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dashboard-filter th {
+    background-color: var(--table-text);
+    color: var(--table-bg);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    padding-right: 40px;
+    padding-left: 10px;
+}
+
+.dashboard-filter td {
+    background-color: var(--slider-background);
+    color: var(--nav-text-inactive);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 40px;
+    padding-left: 10px;
+}
+
+/* width adjustment */
+.course-tb-id {
+    width: 12%;
+}
+
+.course-tb-name {
+    width: 13%;
+}
+
+.course-tb-description {
+    width: 50%;
+}
+
+.course-tb-class {
+    width: 13%;
+}
+
+.course-tb-lecturer {
+    width: 40%;
+}
+
+/* search box */
+.dashboard-search-div {
+    padding-bottom: 30px;
+    width: 65%;
+    margin: auto;
+}
+
+.dashboard-search-box {
+    overflow: hidden;
+    display: inline;
+}
+
+.dashboard-search-TF {
+    width: 93%;
+    margin: auto;
+    text-align: center;
+    border: 0;
+    border-radius: 0px;
+    background: var(--slider-background);
+    padding: 20px 40px;
+    outline: none;
+    color: var(--nav-text-inactive);
+    transition: 0.5s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.dashboard-search-TF:hover {
+    background: var(--nav-text-inactive);
+    color: var(--slider-background);
+}
+
+.dashboard-search-TF:focus {
+    background: var(--nav-text-inactive);
+    color: var(--slider-background);
+}
+
+.dashboard-btn-1 {
+    margin-top: 10px;
+    margin-left: 38%;
+    width: 12%;
+    border: 0;
+    background: var(--dropdown-box-background);
+    color: var(--nav-text-inactive);
+    padding: 10px 10px;
+    cursor: pointer;
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+.dashboard-btn-2 {
+    margin-top: 10px;
+    margin-left: 1px;
+    width: 12%;
+    border: 0;
+    background: var(--dropdown-box-background);
+    color: var(--nav-text-inactive);
+    padding: 10px 10px;
+    cursor: pointer;
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+
+.inquiry-submit:hover {
+    background: #F2EFE6;
+    color: #555;
+}
