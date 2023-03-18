@@ -42,7 +42,7 @@
         // Constraints on Filetypes for Image
         $imageArray = explode('.', $imageName);
         $imageExt = strtolower(end($imageArray));
-        $allowedExt = array('jpg', 'jpeg', 'png', 'jfif', 'pdf', 'gif');
+        $allowedExt = array('jpg', 'jpeg', 'png', 'jfif', 'pdf', 'gif', 'webp');
 
         if ($lecturerID == null) {
             echo '<script type="text/JavaScript">  
