@@ -5,18 +5,32 @@
     $studentName = $_SESSION["user_name"];
 ?>
 
-<?php
-    $getCourse = "SELECT * FROM course";
-    $resultCourse = mysqli_query($connection,$getCourse);
-    $rowCourse = mysqli_fetch_assoc($resultCourse);
-
-
-    if (isset($_POST['btnSubmit'])) {
-        $class = $_POST['txtStudent']; 
-        $intake = $_POST['txtCourse']; 
+<?php  
+    if (isset($_POST['btnSubmit'])) { 
+        $course = $_POST['txtCourse']; 
         $date = $_POST['txtDate'];
-        //$file = ;
+        $file = $_FILES['txtFile'];
+        $query = "SELECT * FROM course WHERE course_name = '$course'";
+        $results = mysqli_query($connection,$query);
+        if($row = mysqli_fetch_assoc($results)){
+            $courseId = $row['course_id'];
         
+            $query = "SELECT * FROM submission WHERE user_id='$studentId' AND course_Id='$courseId'";
+            $results = mysqli_query($connection,$query);
+            $row = mysqli_fetch_assoc($results);
+            $count = mysqli_num_rows($results);
+            if ($count == 1) {
+                echo 'You have submitted the assignment. Available submission attempt is 0.';
+            }else{
+                $sqlQuery = "INSERT INTO `submission`(`submission_date_time`, `submission_file`, `user_id`, `course_id`) 
+                VALUES ('$date','$file','$studentId','$courseId')";
+                if (mysqli_query($connection, $sqlQuery)){
+                    echo 'Assignment successfuly submitted';
+                }else{
+                    echo 'Fail to submit assignment, please try again.';
+                }
+            }
+        }
     mysqli_close($connection);
     }
 ?>
@@ -28,18 +42,21 @@
                 <div class="contact-headling">  
                     <h1>Submit Assignment</h1>
                 </div>
-                <form action="uploadCourse.php" method="POST" nctype = "multipart/form-data" class="contact-form">
+                <form action="uploadSubmission.php" method="POST" nctype = "multipart/form-data" class="contact-form">
                     <div class="input-wrap w-100">
                         <input class="contact-input" type="text" name="txtStudent" value="<?php echo $studentName?>"/>
                         <label>Student Name</label>
                         <i class="fa-solid fa-user"></i>
                     </div>
                     <div class="input-wrap w-100">
-                    <label for="className">Class Name</label>
-                        <select class="contact-input" name="classId" id="className">
-
-                            <option value="<?php echo $category["course_name"]?>"></option>
-
+                    <label for="className">Course Name</label>
+                        <select class="contact-input" name="txtCourse" id="className">
+                        <?php
+                            $getCourse = mysqli_query($connection, "SELECT * FROM course WHERE user_id = '$studentId'");
+                            while ($row = mysqli_fetch_assoc($getCourse)) {
+                                echo "<option value='{$row['course_id']}'>{$row['course_name']}</option>";
+                            }
+                        ?>  
                         </select>
                         <i class="fa-solid fa-book"></i>
                     </div>
@@ -49,7 +66,7 @@
                         <i class="fa-solid fa-calendar-days"></i>
                     </div>
                     <div class="input-wrap w-100">
-                        <input class="contact-input" type="file" name="txtFile" required/>
+                        <input type="file" name="txtFile" required/>
                     </div>
 
                     <button class="btn" id="sign-up-btn" name="btnSubmit">Submit</button>
