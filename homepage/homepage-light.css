@@ -142,3 +142,8 @@ font-family: 'Montserrat', sans-serif;
     cursor: pointer;
     font-family: 'Didact Gothic', sans-serif;
 }
+
+/* teacher dashboard */
+.download-file-btn {
+    text-decoration: none;
+}

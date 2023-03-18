@@ -5,6 +5,7 @@ if (!isset($_SESSION)) {
 
 $user_id = $_SESSION["user_id"];
 $user_role = $_SESSION["user_role"];
+$user_name = $_SESSION["user_name"];
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +52,7 @@ $user_role = $_SESSION["user_role"];
                 <div class="dropdown-menu information-grid">
                     <!-- profile dropdown list start -->
                     <div>
-                        <div class="dropdown-heading">Account</div>
+                        <div class="dropdown-heading"><?php echo $user_name ?></div>
                         <div class="dropdown-links">
                             <a href="../login/logout.php" class="dropdown-navbar-link">Log Out</a>
                         </div>
