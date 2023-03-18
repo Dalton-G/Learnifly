@@ -42,30 +42,29 @@
 <div class="whole">
     <div class="wrapper">
         <div class="title">Create Class</div>
-                <form action="#" method="POST" class="contact-form">
+            <form action="#" method="POST" class="contact-form">
+            <div class="field">
+                    <input type="text" name="txtClass" required/>
+                    <label>Class</label>
+                    <i class="fa-solid fa-landmark"></i>
+                </div>
                 <div class="field">
-                        <input type="text" name="txtClass" required/>
-                        <label>Class</label>
-                        <i class="fa-solid fa-landmark"></i>
-                    </div>
-                    <div class="field">
-                        <input type="integer" name="txtIntake" required/>
-                        <label>Intake</label>
-                        <i class="fa-solid fa-calendar-days"></i>
-                    </div>
-                    <div class="field">
-                        <input type="submit" id="sign-up-btn" name="btnCreate"></type>
-                    </div>
-                </form>
-            </div>
+                    <input type="integer" name="txtIntake" required/>
+                    <label>Intake</label>
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+                <div class="field">
+                    <input type="submit" id="sign-up-btn" name="btnCreate"></type>
+                </div>
+            </form>  
         </div>
-        <div class="right"></div>
     </div>
-</section>
+</div>
 
 
 
-
+<div class="foot">
 <?php
     include ("../../../Learnifly/navbar/footer.php");
 ?>
+</div>

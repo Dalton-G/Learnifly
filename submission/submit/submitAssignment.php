@@ -35,48 +35,40 @@
     }
 ?>
 
-<section class="contact">
-    <div class="container">
-        <div class="left">
-            <div class="form-wrapper w-100">
-                <div class="contact-headling">  
-                    <h1>Submit Assignment</h1>
+<div class="whole">
+    <div class="wrapper">
+        <div class="title">Submit Assignment</div>
+            <form action="uploadSubmission.php" method="POST" nctype = "multipart/form-data" class="contact-form">
+                <div class="field">
+                    <input  type="text" name="txtStudent" value="<?php echo $studentName?>"/>
+                    <label>Student Name</label>
+                    <i class="fa-solid fa-user"></i>
                 </div>
-                <form action="uploadSubmission.php" method="POST" nctype = "multipart/form-data" class="contact-form">
-                    <div class="input-wrap w-100">
-                        <input class="contact-input" type="text" name="txtStudent" value="<?php echo $studentName?>"/>
-                        <label>Student Name</label>
-                        <i class="fa-solid fa-user"></i>
-                    </div>
-                    <div class="input-wrap w-100">
-                    <label for="className">Course Name</label>
-                        <select class="contact-input" name="txtCourse" id="className">
-                        <?php
-                            $getCourse = mysqli_query($connection, "SELECT * FROM course WHERE user_id = '$studentId'");
-                            while ($row = mysqli_fetch_assoc($getCourse)) {
-                                echo "<option value='{$row['course_id']}'>{$row['course_name']}</option>";
-                            }
-                        ?>  
-                        </select>
-                        <i class="fa-solid fa-book"></i>
-                    </div>
-                    <div class="input-wrap w-100">
-                        <input class="contact-input" type="integer" name="txtDate" value="<?php date_default_timezone_set("Asia/Kuala_Lumpur"); echo date("Y/m/d h:i:sa")?>"/>
-                        <label>Submission Date</label>
-                        <i class="fa-solid fa-calendar-days"></i>
-                    </div>
-                    <div class="input-wrap w-100">
-                        <input type="file" name="txtFile" required/>
-                    </div>
-
-                    <button class="btn" id="sign-up-btn" name="btnSubmit">Submit</button>
-                    
-                </form>
-            </div>
+                <div class="field">
+                    <label>Course Name</label>
+                    <select class="contact-input" name="txtCourse" id="className">
+                    <?php
+                        $getCourse = mysqli_query($connection, "SELECT * FROM course WHERE user_id = '$studentId'");
+                        while ($row = mysqli_fetch_assoc($getCourse)) {
+                            echo "<option value='{$row['course_id']}'>{$row['course_name']}</option>";
+                        }
+                    ?>  
+                    </select>
+                    <i class="fa-solid fa-book"></i>
+                </div>
+                <div class="field">
+                    <input  type="integer" name="txtDate" value="<?php date_default_timezone_set("Asia/Kuala_Lumpur"); echo date("Y/m/d h:i:sa")?>"/>
+                    <label>Submission Date</label>
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+                <input type="file" name="txtFile" required/>
+                <div class="field">
+                    <input type="submit" id="sign-up-btn" name="btnSubmit"></input>
+                </div>
+            </form>
         </div>
-        <div class="right"></div>
     </div>
-</section>
+</div>
 
 
 <?php
