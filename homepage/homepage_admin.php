@@ -1,4 +1,5 @@
 <?php include "../../Learnifly/navbar/header.php"; ?>
+<?php include "../../Learnifly/dbConnection/dbConnection.php"; ?>
 
 <head>
     <title>Dashboard</title>
@@ -21,58 +22,45 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Email</th>
-            <th>Subject</th>
-            <th>Message</th>
+            <th>Desc</th>
+            <th>Class</th>
+            <th>Lecturer</th>
         </tr>
-        <?php 
-            $conn = mysqli_connect("localhost", "root", "", "freshhub");
-            if ($conn-> connect_error) {
-                die("Connection failed:". $conn-> connect_error);
-            }
-
-            $sql = "SELECT * FROM inquiries ORDER BY inquiry_id DESC";
-            $result = $conn-> query($sql);
+        <?php
+            $courseDefaultQuery = "SELECT course_id, course_name, course_desc, class_id, user_id FROM course ORDER BY course_id ASC";
+            $getCourseData = mysqli_query($connection, $courseDefaultQuery);
 
             if (isset($_GET['btnSubmit'])) {
-                $inquiry_id = $_GET['txtInquiryID'];
-                $sqlQuery = "SELECT * FROM inquiries WHERE inquiry_id = '$inquiry_id'";
-                $result = mysqli_query($conn, $sqlQuery);
-                while ($row = mysqli_fetch_assoc($result)) {
+                $courseSearch = $_GET['txtCourseName'];
+                $courseSearchQuery = "SELECT course_id, course_name, course_desc, class_id, user_id FROM course WHERE course_name = '$course_search'";
+                $getSearchedData = mysqli_query($connection, $courseSearchQuery);
+                while ($row = mysqli_fetch_assoc($getSearchData)) {
                     echo 
-                    "<tr><td class='inquiry-id'>" . $row["inquiry_id"] . 
-                    "</td><td class='inquiry-name'>" . $row["name"] .
-                    "</td><td class='inquiry-email'>" . $row["email"] .
-                    "</td><td class='inquiry-subject'>" . $row["subject"] .
-                    "</td><td class='class='inquiry-textarea'>" . $row["message"] .
+                    "<tr><td class=''>" . $row["course_id"] . 
+                    "</td><td class=''>" . $row["course_name"] .
+                    "</td><td class=''>" . $row["course_desc"] .
+                    "</td><td class=''>" . $row["class_id"] .
+                    "</td><td class=''>" . $row["user_id"] .
                     "</td></td>";
                 }
                 echo "</table>";
 
-            } else if (isset($_GET['btnDelete'])) {
-                $inquiry_id = $_GET['txtInquiryID'];
-                $sqlQuery = "DELETE FROM `inquiries` WHERE inquiry_id= '$inquiry_id'";
-                $result = mysqli_query($conn, $sqlQuery);?>
-                <script type="text/JavaScript">
-                    setTimeout("location.href = '../contactUs/viewInquiries.php';",0);
-                </script>
-            <?php }
-            else {
-                $sql = "SELECT inquiry_id, name, email, subject, message FROM inquiries";
-                $result = $conn-> query($sql);
-                while ($row = $result -> fetch_assoc()) {
+            } else {
+                $courseDefaultDataQuery = "SELECT course_id, course_name, course_desc, class_id, user_id FROM inquiries";
+                $getCourseRowData = mysqli_query($connection, $courseDefaultQuery);
+                while ($row = $getCourseRowData -> fetch_assoc()) {
                     echo 
-                    "<tr><td class='inquiry-id'>" . $row["inquiry_id"] . 
-                    "</td><td class='inquiry-name'>" . $row["name"] .
-                    "</td><td class='inquiry-email'>" . $row["email"] .
-                    "</td><td class='inquiry-subject'>" . $row["subject"] .
-                    "</td><td class='class='inquiry-textarea'>" . $row["message"] .
+                    "<tr><td class=''>" . $row["course_id"] . 
+                    "</td><td class=''>" . $row["course_name"] .
+                    "</td><td class=''>" . $row["couse_desc"] .
+                    "</td><td class=''>" . $row["class_id"] .
+                    "</td><td class='class=''>" . $row["user_id"] .
                     "</td></td>";
                 }
                 echo "</table>";
             }
 
-            $conn-> close();
+            mysqli_close($connection);
         ?>
     </table>
 </div>
