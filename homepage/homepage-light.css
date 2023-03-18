@@ -143,8 +143,7 @@ font-family: 'Montserrat', sans-serif;
     font-family: 'Didact Gothic', sans-serif;
 }
 
-
-.inquiry-submit:hover {
-    background: #F2EFE6;
-    color: #555;
+/* teacher dashboard */
+.download-file-btn {
+    text-decoration: none;
 }

@@ -6,6 +6,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
+// Redirect user to login page if not logged in
 if (!(isset($_SESSION["user_id"]) && isset($_SESSION["user_role"]))) {
     header("Location:../login/login.php");
 }

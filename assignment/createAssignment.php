@@ -1,84 +1,75 @@
-a<?php
-    include ("../../Learnifly/dbConnection/dbConnection.php");
-    include ("../../Learnifly/navbar/header.php");
+<?php
+require_once("../../Learnifly/navbar/header.php");
+require_once("../login/includes/config.php");
+// Start session if havent
+if (!isset($_SESSION)) {
     session_start();
-    $studentId = $_SESSION["user_id"];
-    $user_role = $_SESSION["user_role"];
+}
+
+// Redirect user to login page if not logged in
+if (!(isset($_SESSION["user_id"]) && isset($_SESSION["user_role"]))) {
+    header("Location:../login/login.php");
+}
 ?>
- 
-<!-- can remove everything, was just trying it -->
 
 <?php
-    $getCourse = "SELECT * FROM course WHERE user_id='$studentId'";
-    $resultCourse = mysqli_query($connection,$getCourse);
-    
-    $rowCourse = mysqli_fetch_assoc($resultCourse);
-    $countCourse = mysqli_num_rows($resultCourse);
-    if ($countCourse == 1) {
-        $row['course_name'] = $course;
-    }else { 
-        echo'Course not registered';
-    }
+$query = $con->query("SELECT * FROM class");
 
-
-    if (isset($_POST['btnSubmit'])) {
-        $class = $_POST['txtStudent']; 
-        $intake = $_POST['txtCourse']; 
-        $date = $_POST['txtDate'];
-        //$file = ;
-        
-    mysqli_close($connection);
-    }
 ?>
 
-<section class="contact">
-    <div class="container">
-        <div class="left">
-            <div class="form-wrapper w-100">
-                <div class="contact-headling">  
-                    <h1>Submit Assignment</h1>
-                </div>
-                <form action="uploadCourse.php" method="POST" nctype = "multipart/form-data" class="contact-form">
-                    <div class="input-wrap w-100">
-                        <input class="contact-input" type="text" name="txtAsgName" required/>
-                        <label>Assignment Name</label>
-                        <i class="fa-solid fa-user"></i>
-                    </div>
-                    <div class="input-wrap w-100">
-                        <input class="contact-input" type="text" name="txtAsgDes" required/>
-                        <label>Assignment Description</label>
-                        <i class="fa-solid fa-user"></i>
-                    </div>
-                    <div class="input-wrap w-100">
-                        <input class="contact-input" type="text" name="txtStart" required/>
-                        <label>Start Date</label>
-                        <i class="fa-solid fa-book"></i>
-                    </div>
-                    <div class="input-wrap w-100">
-                        <input class="contact-input" type="text" name="txtEnd" required/>
-                        <label>End Date</label>
-                        <i class="fa-solid fa-book"></i>
-                    </div>
-                    <div class="input-wrap w-100">
-                        <!-- get course from previous page -->
-                        <input class="contact-input" type="text" name="txtCourse" value="<?php echo $_GET["course_name"]?>"/> 
-                        <label>Course</label> 
-                        <i class=" "></i>
-                    </div>
-                    <div class="input-wrap w-100">
-                        <input class="contact-input" type="file" name="txtFile" required/>
-                    </div>
-
-                    <button class="btn" id="sign-up-btn" name="btnUpload">Submit</button>
-                    
-                </form>
-            </div>
+<head>
+    <script src="js/registration.js" defer></script>
+    <title>Registration</title>
+</head>
+<div class="create-assignment-page">
+    <section class="registration-section">
+        <h2 class="title">📝 Register a user</h2>
+        <div class="error-msg">
+            <!-- Generated message -->
         </div>
-        <div class="right"></div>
-    </div>
-</section>
+        <form action="" class="form">
+
+            <div class="credential">
+                <label for="role">User Role</label>
+                <select name="role" id="role">
+                    <option value="student">Student</option>
+                    <option value="lecturer">Lecturer</option>
+                </select>
+            </div>
+            <div class="credential">
+                <label for="fName">First Name</label>
+                <input id="fName" name="fName" type="text" />
+            </div>
+            <div class="credential">
+                <label for="lName">Last Name</label>
+                <input id="lName" name="lName" type="text" />
+            </div>
+            <div class="credential">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="text" />
+            </div>
+            <div class="credential">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="text" />
+                <i class="fa-solid fa-arrows-rotate pass-generate-icon" title="Generate a random password"></i>
+            </div>
+            <div class="credential">
+                <label for="className">Class Name</label>
+                <select name="classId" id="className" onmousedown="if(this.options.length>4){this.size=4;}"  onchange='this.size=0;' onblur="this.size=0;">
+                    <option value="">-- Select a class --</option>
+                    <?php
+                    while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                        echo "<option value=' {$row['class_id']} '>{$row['class_name']}</option>";
+                    }
+                    ?>
+                </select>
+            </div>
+            <button class="create-btn">Create Account</button>
+        </form>
+    </section>
+</div>
 
 
 <?php
-    include ("../../Learnifly/navbar/footer.php");
+require_once("../../Learnifly/navbar/footer.php");
 ?>

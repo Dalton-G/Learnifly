@@ -5,6 +5,7 @@ if (!isset($_SESSION)) {
 
 $user_id = $_SESSION["user_id"];
 $user_role = $_SESSION["user_role"];
+$user_name = $_SESSION["user_name"];
 ?>
 
 <!DOCTYPE html>
@@ -34,9 +35,11 @@ $user_role = $_SESSION["user_role"];
                         echo "<a href='../../../Learnifly/registration/registration.php' class='navbar-link'>Account</a>";
                     } else if ($user_role == "lecturer") {
                         echo "<a href= '../../../Learnifly/homepage/homepage.php' class='navbar-link'>My Course</a>";
+                        echo "<a href= '../../../Learnifly/homepage/homepage.php' class='navbar-link'>View Submission</a>";
+                        echo "<a href= '../../../Learnifly/homepage/homepage.php' class='navbar-link'>Create Assignment</a>";
                     } else if ($user_role == "student") {
                         echo "<a href= '../../../Learnifly/homepage/homepage.php' class='navbar-link'>My Course</a>";
-                        echo "<a href= '../../../Learnifly/submission/submit/submitAssignment.php' class='navbar-link'>Submission</a>";
+                        echo "<a href= '../../../Learnifly/submission/submit/submitAssignment.php' class='navbar-link'>Submit Assignment</a>";
                     }
                 }
             ?>
@@ -49,7 +52,7 @@ $user_role = $_SESSION["user_role"];
                 <div class="dropdown-menu information-grid">
                     <!-- profile dropdown list start -->
                     <div>
-                        <div class="dropdown-heading">Account</div>
+                        <div class="dropdown-heading"><?php echo $user_name ?></div>
                         <div class="dropdown-links">
                             <a href="../login/logout.php" class="dropdown-navbar-link">Log Out</a>
                         </div>
