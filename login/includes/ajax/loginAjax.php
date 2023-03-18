@@ -25,6 +25,7 @@ if (!($password === $row["user_password"])) {
 
 $_SESSION["user_id"] = $row["user_id"];
 $_SESSION["user_role"] = $row["user_role"];
+$_SESSION["user_name"] = $row["user_name"];
 echo "<p>Login Success! <i class='fas fa-check'></i></p>||{$_SESSION['user_role']}";
 
 

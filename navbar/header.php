@@ -36,6 +36,7 @@ $user_role = $_SESSION["user_role"];
                         echo "<a href= '../../../Learnifly/homepage/homepage.php' class='navbar-link'>My Course</a>";
                     } else if ($user_role == "student") {
                         echo "<a href= '../../../Learnifly/homepage/homepage.php' class='navbar-link'>My Course</a>";
+                        echo "<a href= '../../../Learnifly/submission/submit/submitAssignment.php' class='navbar-link'>Submission</a>";
                     }
                 }
             ?>
