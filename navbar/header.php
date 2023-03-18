@@ -31,7 +31,7 @@ $user_role = $_SESSION["user_role"];
                         echo "<a href= '../../../Learnifly/homepage/homepage_admin.php' class='navbar-link'>Dashboard</a>";
                         echo "<a href='../../../Learnifly/study/class/class.php' class='navbar-link'>Class</a>";
                         echo "<a href='../../../Learnifly/study/course/course.php' class='navbar-link'>Course</a>";
-                        echo "<a href='#' class='navbar-link'>Account</a>";
+                        echo "<a href='../../../Learnifly/registration/registration.php' class='navbar-link'>Account</a>";
                     } else if ($user_role == "lecturer") {
                         echo "<a href= '../../../Learnifly/homepage/homepage.php' class='navbar-link'>My Course</a>";
                     } else if ($user_role == "student") {
