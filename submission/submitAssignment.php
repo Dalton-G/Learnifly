@@ -1,6 +1,6 @@
 <?php
-    include ("../../../Learnifly/dbConnection/dbConnection.php");
-    include ("../../../Learnifly/navbar/header.php");
+    include ("../../Learnifly/dbConnection/dbConnection.php");
+    include ("../../Learnifly/navbar/header.php");
     $studentId = $_SESSION["user_id"];
     $studentName = $_SESSION["user_name"];
 ?>
@@ -49,5 +49,5 @@
 
 
 <?php
-    include ("../../../Learnifly/navbar/footer.php");
+    include ("../../Learnifly/navbar/footer.php");
 ?>
