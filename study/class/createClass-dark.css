@@ -67,6 +67,7 @@
     border: 1px solid lightgrey;
     border-radius: 25px;
     transition: all 0.3s ease;
+    color: #e9e9e9;
 }
 
 .wrapper form .r input{
@@ -184,4 +185,28 @@ form .field input[type="submit"]:hover {
 
 form .field input[type="submit"]:active {
     transform: scale(0.95);
+}
+
+/**/
+.message{
+    width: 100%;
+    position: relative;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+}
+.message .success{
+    font-size: 20px;
+    color: green;
+    position: absolute;
+    animation: buttons .3s linear;
+    display: none;
+}
+.message .danger{
+    font-size: 20px;
+    color: red;
+    position: absolute;
+    transition: .3s;
+    animation: buttons .3s linear;
+    display: none;
 }

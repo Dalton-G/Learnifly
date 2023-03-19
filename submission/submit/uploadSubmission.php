@@ -8,8 +8,12 @@
     if(move_uploaded_file($_FILES['txtFile']['tmp_name'], $targetfolder)) {
       
       $file = $_FILES['txtFile'];
+      $newfile = $file["name"];
       $course = $_POST['txtCourse']; 
       $date = $_POST['txtDate'];
+      echo implode (",",$file);
+      echo $course;
+      echo $date;
       $query = "SELECT * FROM course WHERE course_name = '$course'";
       $results = mysqli_query($connection,$query);
       if($row = mysqli_fetch_assoc($results)){
@@ -26,7 +30,7 @@
             </script>';
         }else{
           $sqlQuery = "INSERT INTO `submission`(`submission_date_time`, `submission_file`, `user_id`, `course_id`) 
-          VALUES ('$date','$file','$studentId','$courseId')";
+          VALUES ('$date','$newfile','$studentId','$courseId')";
           if (mysqli_query($connection, $sqlQuery)){
             echo'<script type="text/JavaScript"> 
               alert("Assignment Succcessfully Submitted!");
