@@ -62,7 +62,7 @@ $query = $con->query("SELECT * FROM course");
                 <input id="assignment" name="assignmentFile" type="file" />
             </div>
 
-            <button class="create-btn">Create assignment</button>
+            <button class="create-btn">Create Assignment</button>
         </form>
     </section>
 </div>

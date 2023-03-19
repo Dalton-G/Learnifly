@@ -37,7 +37,7 @@ if (isset($_SESSION['user_role'])) {
     <img src="../../../Learnifly/images/tp063403/manage/modifyCourse.png" alt="" class = "addcourse-form-img">
         <form action = "updateCoursePage.php" class = "addcourse-form" method = "post" enctype = "multipart/form-data">
             <div class = "addcourse-form-item">
-            <span style = "padding-left: 40px;">Choose Course</span> <br><select style = "margin-top: 10px"name="courseName" required>
+            <span>Choose Course</span> <br><select style = "margin-top: 10px"name="courseName" required>
                             
                             <?php                             
                                 echo "<option value=\"$emptyString\" selected>$emptyString</option>";
@@ -47,7 +47,7 @@ if (isset($_SESSION['user_role'])) {
                             ?>
                             </select><br>
             </div>
-                            <button type = "submit" name = "submit" class = "addcourse-form-button" style = "margin-left: 30px;">Submit</button>
+                            <button type = "submit" name = "submit" class = "addcourse-form-button"><i class="fa-solid fa-check"></i>Submit</button>
         </form>
 
 <?php

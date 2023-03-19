@@ -36,7 +36,7 @@ $user_name = $_SESSION["user_name"];
                     } else if ($user_role == "lecturer") {
                         echo "<a href= '../../../Learnifly/homepage/homepage.php' class='navbar-link'>Home</a>";
                         echo "<a href= '../../../Learnifly/submission/grading/view_submission.php' class='navbar-link'>View Submission</a>";
-                        echo "<a href= '../../../Learnifly/homepage/homepage.php' class='navbar-link'>Create Assignment</a>";
+                        echo "<a href= '../../../Learnifly/assignment/createAssignment.php' class='navbar-link'>Create Assignment</a>";
                     } else if ($user_role == "student") {
                         echo "<a href= '../../../Learnifly/homepage/homepage.php' class='navbar-link'>Home</a>";
                         echo "<a href= '../../../Learnifly/submission/submit/submitAssignment.php' class='navbar-link'>Submit Assignment</a>";
