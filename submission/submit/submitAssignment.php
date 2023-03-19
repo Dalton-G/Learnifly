@@ -5,47 +5,17 @@
     $studentName = $_SESSION["user_name"];
 ?>
 
-<?php  
-    if (isset($_POST['btnSubmit'])) { 
-        $course = $_POST['txtCourse']; 
-        $date = $_POST['txtDate'];
-        $file = $_FILES['txtFile'];
-        $query = "SELECT * FROM course WHERE course_name = '$course'";
-        $results = mysqli_query($connection,$query);
-        if($row = mysqli_fetch_assoc($results)){
-            $courseId = $row['course_id'];
-        
-            $query = "SELECT * FROM submission WHERE user_id='$studentId' AND course_Id='$courseId'";
-            $results = mysqli_query($connection,$query);
-            $row = mysqli_fetch_assoc($results);
-            $count = mysqli_num_rows($results);
-            if ($count == 1) {
-                echo 'You have submitted the assignment. Available submission attempt is 0.';
-            }else{
-                $sqlQuery = "INSERT INTO `submission`(`submission_date_time`, `submission_file`, `user_id`, `course_id`) 
-                VALUES ('$date','$file','$studentId','$courseId')";
-                if (mysqli_query($connection, $sqlQuery)){
-                    echo 'Assignment successfuly submitted';
-                }else{
-                    echo 'Fail to submit assignment, please try again.';
-                }
-            }
-        }
-    mysqli_close($connection);
-    }
-?>
 
-<div class="whole">
+<div class="whole-sub">
     <div class="wrapper">
         <div class="title">Submit Assignment</div>
-            <form action="uploadSubmission.php" method="POST" nctype = "multipart/form-data" class="contact-form">
-                <div class="field">
-                    <input  type="text" name="txtStudent" value="<?php echo $studentName?>"/>
+            <form action="uploadSubmission.php" method="POST" enctype = "multipart/form-data">
+                <div class="field r">
+                    <input  type="text" name="txtStudent" value="<?php echo $studentName?>" readonly/>
                     <label>Student Name</label>
-                    <i class="fa-solid fa-user"></i>
+                    <i class="icon fa-solid fa-user"></i>
                 </div>
-                <div class="field">
-                    <label>Course Name</label>
+                <div class="field r">
                     <select class="contact-input" name="txtCourse" id="className">
                     <?php
                         $getCourse = mysqli_query($connection, "SELECT * FROM course WHERE user_id = '$studentId'");
@@ -54,14 +24,17 @@
                         }
                     ?>  
                     </select>
-                    <i class="fa-solid fa-book"></i>
+                    <label>Course Name</label>
+                    <i class="icon fa-solid fa-book"></i>
                 </div>
-                <div class="field">
-                    <input  type="integer" name="txtDate" value="<?php date_default_timezone_set("Asia/Kuala_Lumpur"); echo date("Y/m/d h:i:sa")?>"/>
+                <div class="field r">
+                    <input  type="integer" name="txtDate" value="<?php date_default_timezone_set("Asia/Kuala_Lumpur"); echo date("Y/m/d h:i:sa")?>" readonly/>
                     <label>Submission Date</label>
-                    <i class="fa-solid fa-calendar-days"></i>
+                    <i class="icon fa-solid fa-calendar-days"></i>
                 </div>
-                <input type="file" name="txtFile" required/>
+                <div class="s">
+                    <input type="file" name="txtFile" required/>
+                </div>
                 <div class="field">
                     <input type="submit" id="sign-up-btn" name="btnSubmit"></input>
                 </div>

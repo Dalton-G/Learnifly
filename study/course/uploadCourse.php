@@ -44,6 +44,21 @@
         $imageExt = strtolower(end($imageArray));
         $allowedExt = array('jpg', 'jpeg', 'png', 'jfif', 'pdf', 'gif', 'webp');
 
+
+        $getAllCourses = "SELECT * FROM `course`";
+        $queryAllCourses = mysqli_query($connection, $getAllCourses);
+        while ($course = mysqli_fetch_assoc($queryAllCourses)) {
+            if ($courseName == $course['course_name']) {
+                echo '<script type="text/JavaScript">   
+                alert("A course with that name already exists, please choose another name");
+                window.location = ("addCourse.php");
+                </script>';
+                die; // Stops other code from executing
+            } else {
+                // Continue Loop
+            }
+        }
+        
         if ($lecturerID == null) {
             echo '<script type="text/JavaScript">  
             alert("A Lecturer must be selected, please choose one");

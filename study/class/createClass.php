@@ -21,19 +21,29 @@
                     $sqlQuery = "INSERT INTO `class`(`class_id`, `class_name`) VALUES ('','$classname')";
                     
                     if (mysqli_query($connection,$sqlQuery)) {
-                        echo 'Class successfully created.';
+                        echo '<script>alert("Class Succcessfully Created!");
+                        window.location = ("createClass.php");
+                        </script>';
                     } else {
-                        echo 'Failed to create class, please try again.';
+                        echo '<script>alert("Failed to create class, please try again.");
+                        window.location = ("createClass.php");
+                        </script>';
                     }
                 }
             }else{
-                echo 'Input length must be 4.'; 
+                echo '<script>alert("Length of Class and Intake must each be 4.");
+                window.location = ("createClass.php");
+                </script>'; 
             }
         }else {
-            echo 'Please insert valid intake code. Tips: Integer data type';
+            echo '<script>alert("Please insert valid intake code. Tips: Integer data type.");
+            window.location = ("createClass.php");
+            </script>';
         }
     }else{
-        echo 'Please insert valid class. Tips: Only letters';
+        echo '<script>alert("Please insert valid class. Tips: Letters only.");
+        window.location = ("createClass.php");
+        </script>';
     }
     mysqli_close($connection);
     }
@@ -46,12 +56,12 @@
             <div class="field">
                     <input type="text" name="txtClass" required/>
                     <label>Class</label>
-                    <i class="fa-solid fa-landmark"></i>
+                    <i class="icon fa-solid fa-landmark"></i>
                 </div>
                 <div class="field">
                     <input type="integer" name="txtIntake" required/>
                     <label>Intake</label>
-                    <i class="fa-solid fa-calendar-days"></i>
+                    <i class="icon fa-solid fa-calendar-days"></i>
                 </div>
                 <div class="field">
                     <input type="submit" id="sign-up-btn" name="btnCreate"></type>
