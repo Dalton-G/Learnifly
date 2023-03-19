@@ -1,5 +1,6 @@
 <?php include "../../../Learnifly/navbar/header.php"; ?>
 <?php include "../../../Learnifly/dbConnection/dbConnection.php"; ?>
+<?php include "../../../Learnifly/homepage/tables/downloadFiles.php"; ?>
 
 <head>
     <title>View Submission</title>
@@ -16,7 +17,7 @@
             <input type="text" class="dashboard-search-TF" placeholder="Search Course Name" name="txtCourseName" required><br>
             <input type="submit" value="Search" name="btnSubmit" class="dashboard-btn-1">
         </form>
-        <a href="../../../Learnifly/homepage/homepage_admin.php"><button class="dashboard-btn-2">Reset</button></a>
+        <a href="../../../Learnifly/submission/grading/view_submission.php"><button class="dashboard-btn-2">Reset</button></a>
     </div>
 
     <table>
@@ -27,25 +28,23 @@
             <th>Submission File</th>
             <th>Grade</th>
             <th>Action</th>
-            <th>
         </tr>
         <?php
-            $courseDefaultQuery = "SELECT course.course_id, course.course_name, course.course_desc, class.class_name, user.user_name FROM ((course INNER JOIN class ON course.class_id = class.class_id) INNER JOIN user ON course.user_id = user.user_id)";
+            $courseDefaultQuery = "SELECT user.user_name, course.course_name, submission.submission_date_time, submission.submission_file, grade.grade_given FROM ((( user INNER JOIN submission ON user.user_id = submission.user_id) INNER JOIN course ON submission.course_id = course.course_id) LEFT JOIN grade ON grade.submission_id = submission.submission_id)";
             $getCourseData = mysqli_query($connection, $courseDefaultQuery);
 
             if (isset($_GET['btnSubmit'])) {
                 $courseSearch = $_GET['txtCourseName'];
-                $courseSearchQuery = "SELECT course.course_id, course.course_name, course.course_desc, class.class_name, user.user_name FROM ((course INNER JOIN class ON course.course_id = class.class_id) INNER JOIN user ON course.user_id = user.user_id) WHERE course_name = '$courseSearch'";
+                $courseSearchQuery = "SELECT user.user_name, course.course_name, submission.submission_date_time, submission.submission_file, grade.grade_given FROM ((( user INNER JOIN submission ON user.user_id = submission.user_id) INNER JOIN course ON submission.course_id = course.course_id) LEFT JOIN grade ON grade.submission_id = submission.submission_id) WHERE course_name = '$courseSearch'";
                 $getSearchedCourseData = mysqli_query($connection, $courseSearchQuery);
                 while ($row = mysqli_fetch_assoc($getSearchedCourseData)) {
                     echo 
-                    "<tr><td>" . $row["course_id"] . 
+                    "<tr><td>" . $row["user_name"] . 
                     "</td><td>" . $row["course_name"] .
-                    "</td><td>" . $row["course_desc"] .
-                    "</td><td>" . $row["class_name"] .
-                    "</td><td>" . $row["user_name"] .
-                    "</td><td>" . "Grade" .
-                    "</td><td>" . "Button" .
+                    "</td><td>" . $row["submission_date_time"] .
+                    "</td><td>" . downloadSubmission($row["submission_file"]) .
+                    "</td><td>" . checkGrade($row["grade_given"]) .
+                    "</td><td>" . "need to do this button" . //work on this
                     "</td>";
                 }
                 echo "</table>";
@@ -53,13 +52,12 @@
             } else {
                 while ($row = $getCourseData -> fetch_assoc()) {
                     echo 
-                    "<tr><td>" . $row["course_id"] . 
+                    "<tr><td>" . $row["user_name"] . 
                     "</td><td>" . $row["course_name"] .
-                    "</td><td>" . $row["course_desc"] .
-                    "</td><td>" . $row["class_name"] .
-                    "</td><td>" . $row["user_name"] .
-                    "</td><td>" . "Grade" .
-                    "</td><td>" . "Button" .
+                    "</td><td>" . $row["submission_date_time"] .
+                    "</td><td>" . downloadSubmission($row["submission_file"]) .
+                    "</td><td>" . checkGrade($row["grade_given"]) .
+                    "</td><td>" . "need to do this button" . //work on this
                     "</td>";
                 }
                 echo "</table>";

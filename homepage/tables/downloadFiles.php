@@ -18,6 +18,15 @@ function downloadAssignment($file_name) {
     }
 }
 
+function downloadSubmission($file_name) {
+    if ($file_name == "") {
+        return "pending";
+    } else {
+        $directory = '../../../Learnifly/resources/courseSubmission/'. $file_name;
+        return "<a href='" . $directory . "' class='download-file-btn' download>Download</a>";
+    }
+}
+
 function checkGrade($grade) {
     if ($grade == "") {
         return "pending";
