@@ -44,7 +44,7 @@
                     "</td><td>" . $row["submission_date_time"] .
                     "</td><td>" . downloadSubmission($row["submission_file"]) .
                     "</td><td>" . checkGrade($row["grade_given"]) .
-                    "</td><td>" . "need to do this button" . //work on this
+                    "</td><td>" . "need to do this button" . //work on this for me if you guys have time >.<
                     "</td>";
                 }
                 echo "</table>";
@@ -57,7 +57,7 @@
                     "</td><td>" . $row["submission_date_time"] .
                     "</td><td>" . downloadSubmission($row["submission_file"]) .
                     "</td><td>" . checkGrade($row["grade_given"]) .
-                    "</td><td>" . "need to do this button" . //work on this
+                    "</td><td>" . "need to do this button" . //work on this for me if you guys have time >.<
                     "</td>";
                 }
                 echo "</table>";
