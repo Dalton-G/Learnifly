@@ -1,7 +1,7 @@
 /**************************
 Author: Gan Ming liang
 TP No: TP063338 
-Subject: Homepage Dark Theme
+Subject: Homepage Light Theme
 **************************/
 
 /**************************
@@ -167,6 +167,7 @@ font-family: 'Montserrat', sans-serif;
     border: none;
 }
 
+/* student dashboard table */
 .student-db-1 {
     width: 10%;
 }
@@ -177,8 +178,22 @@ font-family: 'Montserrat', sans-serif;
     width: 20%;
 }
 .student-db-4 {
-    width: 10%;
+    width: 20%;
 }
 .student-db-5 {
+    width: 10%;
+}
+
+/* lecturer dashboard table */
+.lecturer-db-1 {
+    width: 10%;
+}
+.lecturer-db-2 {
+    width: 50%;
+}
+.lecturer-db-3 {
+    width: 20%;
+}
+.lecturer-db-4 {
     width: 20%;
 }
