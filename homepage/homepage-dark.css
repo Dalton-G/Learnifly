@@ -24,6 +24,13 @@ font-family: 'Montserrat', sans-serif;
     text-align: center;
 }
 
+.dashboard-h2 {
+    color: var(--nav-text-active);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: light;
+    text-align: center;
+}
+
 .dashboard-line {
     width: 100px;
     height: 10px;
@@ -143,8 +150,13 @@ font-family: 'Montserrat', sans-serif;
     font-family: 'Didact Gothic', sans-serif;
 }
 
-
-.inquiry-submit:hover {
-    background: #F2EFE6;
-    color: #555;
+/* student dashboard */
+.download-file-btn {
+    text-decoration: none;
+    display: inline-block;
+    background-color: var(--icon-logo-color);
+    color: var(--dropdown-box-background);
+    padding: 10px 20px;
+    border-radius: 5px;
+    scale: 0.8;
 }

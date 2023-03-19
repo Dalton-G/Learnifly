@@ -7,7 +7,8 @@
 
 <!-- [1] view course -->
 <div class="dashboard-filter">
-    <h1 class="dashboard-header">Dashboard</h1>
+    <h1 class="dashboard-header">Welcome back!</h1>
+    <?php echo "<h2 class='dashboard-h2'>" . $user_name . "</h2>" ?>
     <div class="dashboard-line"></div>
 
     <div class="dashboard-search-div">

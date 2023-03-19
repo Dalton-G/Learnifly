@@ -23,8 +23,10 @@ if (!($password === $row["user_password"])) {
     exit("<p>Invalid credentials!</p>");
 }
 
-$_SESSION["user_id"] = $row["user_id"];
-$_SESSION["user_role"] = $row["user_role"];
+$_SESSION["user_id"] = $row["user_id"]; // UserId session
+$_SESSION["user_role"] = $row["user_role"]; // UserRole session
+$_SESSION["user_name"] = $row["user_name"]; // UserName session
+$_SESSION["class_id"] = $row["class_id"]; // ClassId session
 echo "<p>Login Success! <i class='fas fa-check'></i></p>||{$_SESSION['user_role']}";
 
 

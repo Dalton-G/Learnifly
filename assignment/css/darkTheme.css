@@ -1,0 +1,192 @@
+/**************************
+Author: Bryan Wong Win Kit
+TP No: TP063248
+Subject: Registration CSS
+**************************/
+
+/**************************
+F O N T - U S E D:
+font-family: 'League Spartan', sans-serif;
+font-family: 'Montserrat', sans-serif;
+**************************/
+
+/* Import fonts */
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.create-assignment-page {
+    display: flex;
+    justify-content: center; 
+    background-color: #36393e;
+    font-family: "Montserrat", sans-serif;
+    padding-block: 100px;
+    color: #f5f5f5;
+} 
+
+.create-assignment-page .assignment-section {
+    display: flex;
+    flex-direction: column;
+    min-width: 40%;
+    padding: 30px 50px;
+    background-color: #272837;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 1rem;
+}
+
+.create-assignment-page .assignment-section .title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.create-assignment-page .assignment-section .error-msg {
+    display: none;
+    color: #f5f5f5 !important;
+    background-color: #ff3b6bab;
+    font-size: 0.95rem;
+    text-align: center;
+    padding: 5px 24px;
+    border-radius: 0.5rem;
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.assignment-section .error-msg > p {
+    margin-block: 1em;
+}
+
+.create-assignment-page .assignment-section .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+}
+
+.assignment-section .form .non-date-input {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+.assignment-section .non-date-input > label,
+.assignment-section .date-input > label {
+    padding-top: 5px;
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.assignment-section .form .date-input {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+/* Global dropdown and input fields stylings */
+.assignment-section .non-date-input > input,
+.assignment-section .non-date-input > select {
+    margin-left: auto;
+    width: 500px;
+    padding: 8px 28px 8px 8px;
+    font-family: "Montserrat", sans-serif;
+    border: 1px solid #ccd0f8;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+        rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+.assignment-section .non-date-input > select {
+    width: 537px;
+}
+
+.assignment-section .date-input > input[type="date"],
+.assignment-section .date-input > input[type="time"] {
+    font-family: "Montserrat", sans-serif;
+    border: 1px solid #ccd0f8;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+        rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+.assignment-section .date-input > input[type="date"] {
+    margin-left: auto;
+    padding: 8px 0px 8px 8px;
+    width: 430px;
+}
+.assignment-section .date-input > input[type="time"] {
+    width: 97px;
+    font-size: 0.87rem;
+}
+
+
+.assignment-section .non-date-input > input:focus,
+.assignment-section .non-date-input > select:focus,
+.assignment-section .date-input > input:focus {
+    outline: none;
+    border: 1px solid #8993fd;
+}
+
+/* Class name Dropdown options*/
+.assignment-section .non-date-input > select[name="className"] > option {
+    padding-block: 4px;
+    padding-inline: 5px;
+}
+
+.assignment-section .form .create-btn {
+    font-family: "Montserrat", sans-serif;
+    background-color: #a363f7;
+    color: #fff;
+    height: 42px;
+    border: none;
+    border-radius: 0.3rem;
+    font-weight: 500;
+    margin-top: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    box-shadow: rgba(61, 63, 66, 0.3) 0px 1px 2px 0px,
+        rgba(61, 63, 66, 0.15) 0px 1px 3px 1px;
+}
+
+.assignment-section .form .create-btn:hover {
+    background-color: #8730f8;
+}
+
+@media (max-width: 822px) {
+    .assignment-section .non-date-input > input {
+        width: 300px;
+    }
+    .assignment-section .non-date-input > select {
+        width: 337px;
+    }
+    .assignment-section .date-input > input[type="date"] {
+        width: 230px;
+    }
+}
+
+@media (max-width: 621px) {
+    .assignment-section .non-date-input > input {
+        width: 200px;
+    }
+    .assignment-section .non-date-input > select {
+        width: 237px;
+    }
+    .assignment-section .date-input > input[type="date"] {
+        width: 130px;
+    }
+}
+
+@media (max-width: 520px) {
+    .assignment-section .non-date-input > input {
+        width: 100px;
+    }
+    .assignment-section .non-date-input > select {
+        width: 137px;
+    }
+    .assignment-section .date-input > input[type="date"] {
+        width: 100px;
+    }
+    .assignment-section .date-input > input[type="time"] {
+        width: 92px;
+    }
+}
