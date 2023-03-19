@@ -1,7 +1,7 @@
 /**************************
 Author: Ian Joseph Lai Zi Jin
 TP No: TP063403
-Subject: Add Courses Light CSS
+Subject: Add Courses Dark CSS
 **************************/
 
 /**************************
@@ -15,15 +15,15 @@ font-family: 'Montserrat', sans-serif;
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-    --page--title--color: #272837;
-    --button-bg-color: #edf0f1;
-    --button-text-color: #272837;
-    --button-border-color:  #424549;
-    --nav-text-inactive: #424549;
-    --nav-text-active: #f8537d;
-    --button-active-color: #d5d6de;
+    --page--title--color: #edf0f1; 
+    --button-bg-color: #272837;
+    --button-text-color: #edf0f1;
+    --button-border-color: #737373;
+    --nav-text-inactive: #edf0f1;
+    --nav-text-active: #AB9DBB;
+    --button-active-color: #030412;
     --button-shadow-color: black;
-    --image-shadow-color: gray;
+    --image-shadow-color: black;
 }
 
 .addcourse-form{
