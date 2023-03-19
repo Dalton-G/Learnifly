@@ -37,9 +37,6 @@
 
         $deleteImagePath = "../../images/courseImages/" . $currentImage;
         $deleteResourcePath = "../../resources/courseResource/" . $currentResource;
-        
-        echo $deleteImagePath . "<br>";
-        echo $deleteResourcePath . "<br>";
 
         if ($courseImage['name'] == '' && $courseResource['name'] == '') { // IMAGE AND RESOURCE EMPTY
             if (mysqli_query($connection, $updateCourseQuery)) {
