@@ -26,16 +26,16 @@
             <th>Course Name</th>
             <th>Submission Time</th>
             <th>Submission File</th>
-            <th>Grade</th>
             <th>Action</th>
+            <th>Grade</th>
         </tr>
         <?php
-            $courseDefaultQuery = "SELECT user.user_name, course.course_name, submission.submission_date_time, submission.submission_file, grade.grade_given FROM ((( user INNER JOIN submission ON user.user_id = submission.user_id) INNER JOIN course ON submission.course_id = course.course_id) LEFT JOIN grade ON grade.submission_id = submission.submission_id)";
+            $courseDefaultQuery = "SELECT user.user_name, course.course_name, submission.submission_date_time, submission.submission_file, grade.grade_given, submission.submission_id FROM ((( user INNER JOIN submission ON user.user_id = submission.user_id) INNER JOIN course ON submission.course_id = course.course_id) LEFT JOIN grade ON grade.submission_id = submission.submission_id)";
             $getCourseData = mysqli_query($connection, $courseDefaultQuery);
 
             if (isset($_GET['btnSubmit'])) {
                 $courseSearch = $_GET['txtCourseName'];
-                $courseSearchQuery = "SELECT user.user_name, course.course_name, submission.submission_date_time, submission.submission_file, grade.grade_given FROM ((( user INNER JOIN submission ON user.user_id = submission.user_id) INNER JOIN course ON submission.course_id = course.course_id) LEFT JOIN grade ON grade.submission_id = submission.submission_id) WHERE course_name = '$courseSearch'";
+                $courseSearchQuery = "SELECT user.user_name, course.course_name, submission.submission_date_time, submission.submission_file, grade.grade_given, submission.submission_id FROM ((( user INNER JOIN submission ON user.user_id = submission.user_id) INNER JOIN course ON submission.course_id = course.course_id) LEFT JOIN grade ON grade.submission_id = submission.submission_id) WHERE course_name = '$courseSearch'";
                 $getSearchedCourseData = mysqli_query($connection, $courseSearchQuery);
                 while ($row = mysqli_fetch_assoc($getSearchedCourseData)) {
                     echo 
@@ -43,8 +43,8 @@
                     "</td><td>" . $row["course_name"] .
                     "</td><td>" . $row["submission_date_time"] .
                     "</td><td>" . downloadSubmission($row["submission_file"]) .
+                    "</td><td>" . "<a href='grading.php?id=" . $row['submission_id'] . "' class='download-file-btn'> <i class='fa-solid fa-marker'></i>&nbsp;&nbsp; Grade </a>" .
                     "</td><td>" . checkGrade($row["grade_given"]) .
-                    "</td><td>" . "need to do this button" . //work on this for me if you guys have time >.<
                     "</td>";
                 }
                 echo "</table>";
@@ -56,8 +56,8 @@
                     "</td><td>" . $row["course_name"] .
                     "</td><td>" . $row["submission_date_time"] .
                     "</td><td>" . downloadSubmission($row["submission_file"]) .
+                    "</td><td>" . "<a href='grading.php?id=" . $row['submission_id'] . "' class='download-file-btn'> <i class='fa-solid fa-marker'></i>&nbsp;&nbsp; Grade </a>" .
                     "</td><td>" . checkGrade($row["grade_given"]) .
-                    "</td><td>" . "need to do this button" . //work on this for me if you guys have time >.<
                     "</td>";
                 }
                 echo "</table>";
