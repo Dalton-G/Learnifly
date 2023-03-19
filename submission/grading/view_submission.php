@@ -56,7 +56,7 @@
                     "</td><td>" . $row["course_name"] .
                     "</td><td>" . $row["submission_date_time"] .
                     "</td><td>" . downloadSubmission($row["submission_file"]) .
-                    "</td><td>" . "<a href='grading.php?id=" . $row['submission_id'] . "' class='download-file-btn'> <i class='fa-solid fa-marker'></i>&nbsp;&nbsp; Grade </a>" .
+                    "</td><td>" . dropdownGradeMenu($row["grade_given"]) ."<label class='download-file-btn'><i class='fa-solid fa-marker'></i>&nbsp;&nbsp;&nbsp;Grade<input type='submit' value='". $row['submission_id'] ."' name='submission_id' class='hidden-grade-btn'></label></form>" .
                     "</td><td>" . checkGrade($row["grade_given"]) .
                     "</td>";
                 }
@@ -66,6 +66,23 @@
     </table>
 </div>
 
+<?php
+if (isset($_GET['submission_id'])) {
+    $submissionID = $_GET['submission_id'];
+    $grade_given = $_GET['grade_given'];
+    echo $grade_given;
+    echo $submissionID;
+
+    $insertGradeQuery = "INSERT INTO `grade`(`grade_given`, `submission_id`) VALUES ('$grade_given','$submissionID')";
+    $insertGradeResult = mysqli_query($connection, $insertGradeQuery);
+
+    if ($insertGradeResult) {
+        echo "<script>setTimeout(function() { window.location.href = 'view_submission.php'; });</script>";
+    } else {
+        echo "Failed: " . mysqli_error($connection);
+    }
+}
+?>
 
 <?php mysqli_close($connection); ?>
 <?php include "../../../Learnifly/navbar/footer.php"; ?>

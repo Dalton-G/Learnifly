@@ -34,4 +34,20 @@ function checkGrade($grade) {
         return $grade;
     }
 }
+
+function dropdownGradeMenu($grade) {
+    if ($grade == "") {
+        return "
+        <form action='#' method='GET'>
+        <select id='grade_given' name='grade_given'>
+        <option value='A'>A</option>
+        <option value='B'>B</option>
+        <option value='C'>C</option>
+        <option value='D'>D</option>
+        <option value='F'>F</option>
+        </select>
+        ";
+    }
+}
+
 ?>
