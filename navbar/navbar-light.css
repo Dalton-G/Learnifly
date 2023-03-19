@@ -20,6 +20,7 @@ font-family: 'Montserrat', sans-serif;
 @import url('../registration/css/lightTheme.css'); /*    imported Bryan's CSS: registration-light.css    */
 @import url('../study/class/createClass-light.css'); /*    imported Amadea's CSS: createClass-light.css    */
 @import url("../study/course/addCourse-light.css"); /*    imported Ian's CSS: addCourse-light.css    */
+@import url("../study/course/updateCoursePage-light.css"); /*    imported Ian's CSS: updateCoursePage-light.css    */
 
 /* root selector */
 :root {

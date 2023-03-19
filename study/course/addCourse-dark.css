@@ -29,7 +29,7 @@ font-family: 'Montserrat', sans-serif;
 .addcourse-form{
     font-family: 'Montserrat', sans-serif;
     display: block;
-    margin-left: 800px;
+    text-align: center;
     padding-top: 20px;
     font-size: 22px;
     padding-bottom: 70px;
@@ -43,7 +43,7 @@ font-family: 'Montserrat', sans-serif;
 
 .addcourse-form-item input {
     font-family: 'Montserrat', sans-serif;
-    width: 250px;
+    width: 310px;
     height: 30px;
     border-radius: 5px;
 }
@@ -56,7 +56,7 @@ font-family: 'Montserrat', sans-serif;
 .addcourse-form-item select {
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    width: 250px;
+    width: 310px;
     height: 30px;
     border-radius: 5px;
 }
@@ -73,11 +73,10 @@ font-family: 'Montserrat', sans-serif;
     color: var(--button-text-color);
     font-family: 'Montserrat', sans-serif;
     font-size: 22px;
-    width: 200px;
+    width: 230px;
     height: 50px;
     border-radius: 6px;
     border-width: 0.8px;
-    margin-left: 40px;
     margin-top: 20px;
 }
 
@@ -95,6 +94,7 @@ font-family: 'Montserrat', sans-serif;
 }
 
 .addcourse-form-img {
+    
     display: block;
     margin: 0 auto;
     margin-top: 40px;
