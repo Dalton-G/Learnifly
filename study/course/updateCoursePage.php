@@ -97,9 +97,6 @@
                     Modify Description <br><input type = "text" name = "courseDescription" value = "<?= $courseDescription; ?>" required> <br>
                 </div>
                 <div class = "addcourse-form-item">
-                    Change Resource File <br><input type = "file" name = "courseResource"> <br>
-                </div>
-                <div class = "addcourse-form-item">
                     Change Lecturer <br><select name="lecturerName" required>
                                     <?php                          
                                         foreach ($lecturersArray as $lecturer) {
@@ -113,6 +110,10 @@
                                     </select>
                                     <br>
                 </div>
+                <div class = "addcourse-form-item">
+                    Change Resource File <br><input type = "file" name = "courseResource"> <br>
+                </div>
+                
                 <div class = "addcourse-form-item">
                     Change Course Image <br><input type = "file" name = "courseImage" class = "addcourse-form-item"> <br>
                     <button type = "submit" name = "updateCourse" class = "addcourse-form-button" >Update Course</button>
