@@ -18,9 +18,8 @@
                 $results = mysqli_query($connection,$query);
                 $row = mysqli_fetch_assoc($results);
                 $count = mysqli_num_rows($results);
-                if ($count == 1) {?>
-                    <input id="fail" value="yes" hide>;
-                    <?php echo '<script>alert("Class Already Exists!");
+                if ($count == 1) {
+                    echo '<script>alert("Class Already Exists!");
                         window.location = ("createClass.php");
                         </script>';
                     }else {
@@ -72,19 +71,13 @@
                 <div class="field">
                     <input type="submit" id="sign-up-btn" name="btnCreate" onclick="message()"></type>
                 </div>
-            <div class="message">
-                <div class="success" id="success">Class Successfully Sent!</div>
-                <div class="danger" id="danger">Invalid Class Input!</div>
-            </div>
+            
             </form>  
         </div>
     </div>
 </div>
-            
-<script src="main.js"></script>
 
-<div class="foot">
+
 <?php
     include ("../../../Learnifly/navbar/footer.php");
 ?>
-</div>

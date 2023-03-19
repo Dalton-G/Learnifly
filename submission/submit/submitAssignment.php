@@ -18,10 +18,14 @@
                 <div class="field r">
                     <select class="contact-input" name="txtCourse" id="className">
                     <?php
-                        $getCourse = mysqli_query($connection, "SELECT * FROM course WHERE user_id = '$studentId'");
-                        while ($row = mysqli_fetch_assoc($getCourse)) {
-                            echo "<option value='{$row['course_id']}'>{$row['course_name']}</option>";
-                        }
+                        $getClass = mysqli_query($connection, "SELECT * FROM user WHERE user_id = '$studentId'");
+                        while ($row = mysqli_fetch_assoc($getClass)) {
+                            $class = $row["class_id"];
+                        
+                            $getCourse = mysqli_query($connection, "SELECT * FROM course WHERE class_id = '$class'");
+                            while ($row = mysqli_fetch_assoc($getCourse)) {
+                                echo "<option value='{$row['course_id']}'>{$row['course_name']}</option>";
+                        }}
                     ?>  
                     </select>
                     <label>Course Name</label>
