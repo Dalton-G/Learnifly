@@ -116,7 +116,7 @@
                 
                 <div class = "addcourse-form-item">
                     Change Course Image <br><input type = "file" name = "courseImage" class = "addcourse-form-item"> <br>
-                    <button type = "submit" name = "updateCourse" class = "addcourse-form-button" >Update Course</button>
+                    <button type = "submit" name = "updateCourse" class = "addcourse-form-button" ><i class="fa-solid fa-pen"></i>Update Course</button>
                 </div>
             </form>
 
