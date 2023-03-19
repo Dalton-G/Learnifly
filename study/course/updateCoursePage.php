@@ -46,7 +46,7 @@
 ?>
     <?php if (isset($_POST['submit'])) { ?>
     
-        <h1>Update <?=$_POST['courseName']?> Course</h1>
+        <h1 class = "page_title">Update <?=$_POST['courseName']?> Course</h1>
         
         <?php while ($courseDetail = mysqli_fetch_assoc($courseIDQuery)) { ?>
 
@@ -70,45 +70,53 @@
                 $className = $classNameArray['class_name'];
             ?>
             
-            <img src = "../../images/courseImages/<?=$courseDetail['course_img'];?>">
+            <img class = "addcourse-form-img" style = "width: 350px; height: 350px;" src = "../../images/courseImages/<?=$courseDetail['course_img'];?>">
 
-            <div class = "update_course_info">
-                
-                <div class = "course_info_item">
-                    Course Description: <span><?=$courseDescription?></span>
+            <div class = "updatecourse-container">
+                <div class = "updatecourse-item">
+                    <span>Course Description: </span><?=$courseDescription?>
                 </div>
-                <div class = "course_info_item">
-                    Course Resource: <span><?=$courseResource?></span>
+                <div class = "updatecourse-item">
+                    <span>Course Resource: </span><?=$courseResource?>
                 </div>
-                <div class = "course_info_item">
-                    Class: <span><?=$className?></span>
+                <div class = "updatecourse-item">
+                    <span>Class: </span><?=$className?>
                 </div>
-                <div class = "course_info_item">
-                    Lecturer Assigned: <span><?=$lecturerName?></span>
+                <div class = "updatecourse-item">
+                    <span>Lecturer Assigned: </span><?=$lecturerName?>
                 </div>
             </div>
             <br>
 
-            <form action = "updateCourse.php" method = "post" class = "" enctype = "multipart/form-data">
+            <form action = "updateCourse.php" method = "post" class = "addcourse-form" enctype = "multipart/form-data">
                 <input type = "hidden" name = "courseName" value = "<?=$courseName?>">
                 <input type = "hidden" name = "courseID" value = "<?=$courseID?>">
                 <input type = "hidden" name = "classID" value = "<?=$classID?>">
-                Modify Description: <input type = "text" name = "courseDescription" required value = "<?= $courseDescription; ?>" required> <br>
-                Change Resource File: <input type = "file" name = "courseResource"> <br>
-                Change Lecturer: <select name="lecturerName" required>
-                                <?php                          
-                                    foreach ($lecturersArray as $lecturer) {
-                                        if ($lecturerName == $lecturer) {
-                                            echo "<option value=\"$lecturerName\" selected>$lecturerName</option>"; // Sets the previous value as the default selected value
-                                        } else {
-                                            echo "<option value=\"$lecturer\">$lecturer</option>"; // Displays all other lectuers below the default
+
+                <div class = "addcourse-form-item">
+                    Modify Description <br><input type = "text" name = "courseDescription" value = "<?= $courseDescription; ?>" required> <br>
+                </div>
+                <div class = "addcourse-form-item">
+                    Change Resource File <br><input type = "file" name = "courseResource"> <br>
+                </div>
+                <div class = "addcourse-form-item">
+                    Change Lecturer <br><select name="lecturerName" required>
+                                    <?php                          
+                                        foreach ($lecturersArray as $lecturer) {
+                                            if ($lecturerName == $lecturer) {
+                                                echo "<option value=\"$lecturerName\" selected>$lecturerName</option>"; // Sets the previous value as the default selected value
+                                            } else {
+                                                echo "<option value=\"$lecturer\">$lecturer</option>"; // Displays all other lectuers below the default
+                                            }
                                         }
-                                    }
-                                ?>
-                                </select>
-                                <br>
-                Change Course Image: <input type = "file" name = "courseImage"> <br>
-                <button type = "submit" name = "updateCourse" class = "" >Update Course</button>
+                                    ?>
+                                    </select>
+                                    <br>
+                </div>
+                <div class = "addcourse-form-item">
+                    Change Course Image <br><input type = "file" name = "courseImage" class = "addcourse-form-item"> <br>
+                    <button type = "submit" name = "updateCourse" class = "addcourse-form-button" >Update Course</button>
+                </div>
             </form>
 
         <?php }

@@ -19,7 +19,7 @@ font-family: 'Montserrat', sans-serif;
 @import url('../homepage/homepage-dark.css'); /* imported Dalton's CSS: homepage-dark.css     */
 @import url('../registration/css/darkTheme.css'); /*    imported Bryan's CSS: registration-dark.css    */
 @import url("../study/course/addCourse-dark.css"); /*    imported Ian's CSS: addCourse-dark.css    */
-
+@import url("../study/course/updateCoursePage-dark.css"); /*    imported Ian's CSS: updateCoursePage-dark.css    */
 
 /* root selector */
 :root {

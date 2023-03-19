@@ -76,7 +76,7 @@ if (isset($_SESSION['user_role'])) {
                             </select><br>
         </div>
         <div class = "addcourse-form-item">
-            Upload Course Image <br><input type = "file" name = "courseImage" required > <br>
+            Upload Course Image <br><input type = "file" name = "courseImage" required> <br>
             <p style = "font-style: italic; font-size: 12px;">file types allowed - jpg, jpeg, png, jfif, pdf, gif</p>
         </div>
         <div class = "addcourse-form-item">
