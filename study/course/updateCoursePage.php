@@ -1,7 +1,26 @@
 <?php
     include ("../../../Learnifly/dbConnection/dbConnection.php");
     include ("../../../Learnifly/navbar/header.php");
-    
+?>
+
+<?php 
+
+    if (!(isset($_SESSION["user_id"]) && isset($_SESSION["user_role"]))) {
+        header("Location:../../../Learnifly/login/login.php");
+    }
+
+    if (isset($_SESSION['user_role'])) {
+        if ($user_role != "admin") {
+            header("Location:../../../Learnifly/login/login.php");
+        } else {
+
+        }
+    }
+
+?>
+
+<?php
+
     $emptyString = "Select";
     
     $courseName = $_POST['courseName'];

@@ -3,6 +3,22 @@
     include ("../../../Learnifly/navbar/header.php");
 ?>
 
+<?php
+
+if (!(isset($_SESSION["user_id"]) && isset($_SESSION["user_role"]))) {
+    header("Location:../../../Learnifly/login/login.php");
+}
+
+if (isset($_SESSION['user_role'])) {
+    if ($user_role != "admin") {
+        header("Location:../../../Learnifly/login/login.php");
+    } else {
+
+    }
+}
+
+?>
+
 <head>
     <title>Manage Courses</title>
 </head>

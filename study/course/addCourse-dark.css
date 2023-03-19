@@ -95,8 +95,9 @@ font-family: 'Montserrat', sans-serif;
 }
 
 .addcourse-form-img {
+    display: block;
+    margin: 0 auto;
     margin-top: 40px;
-    margin-left: 640px;
     width: 550px;
     background-color: rgba(200, 200, 200, 0.1);
     border-radius: 6px;
