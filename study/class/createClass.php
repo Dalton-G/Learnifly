@@ -3,9 +3,6 @@
     include ("../../../Learnifly/navbar/header.php");
 ?>
 
-<ink rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-      <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-
 <?php
     if (isset($_POST['btnCreate'])) {
     $class = $_POST['txtClass']; 
@@ -69,7 +66,7 @@
                     <i class="icon fa-solid fa-calendar-days"></i>
                 </div>
                 <div class="field">
-                    <input type="submit" id="sign-up-btn" name="btnCreate" onclick="message()"></type>
+                    <input type="submit" id="sign-up-btn" name="btnCreate"></type>
                 </div>
             
             </form>  
