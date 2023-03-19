@@ -1,6 +1,6 @@
-<?php include "../../../Learnifly/navbar/header.php"; ?>
-<?php include "../../../Learnifly/dbConnection/dbConnection.php"; ?>
-<?php include "../../../Learnifly/homepage/tables/downloadFiles.php"; ?>
+<?php include "../../Learnifly/navbar/header.php"; ?>
+<?php include "../../Learnifly/dbConnection/dbConnection.php"; ?>
+<?php include "../../Learnifly/homepage/tables/downloadFiles.php"; ?>
 
 <head>
     <title>View Submission</title>
@@ -17,7 +17,7 @@
             <input type="text" class="dashboard-search-TF" placeholder="Search Course Name" name="txtCourseName" required><br>
             <input type="submit" value="Search" name="btnSubmit" class="dashboard-btn-1">
         </form>
-        <a href="../../../Learnifly/submission/grading/view_submission.php"><button class="dashboard-btn-2">Reset</button></a>
+        <a href="../../Learnifly/submission/view_submission.php"><button class="dashboard-btn-2">Reset</button></a>
     </div>
 
     <table>
@@ -85,4 +85,4 @@ if (isset($_GET['submission_id'])) {
 ?>
 
 <?php mysqli_close($connection); ?>
-<?php include "../../../Learnifly/navbar/footer.php"; ?>
+<?php include "../../Learnifly/navbar/footer.php"; ?>
