@@ -12,9 +12,8 @@
       $course = $_POST['txtCourse']; 
       $date = $_POST['txtDate'];
       echo implode (",",$file);
-      echo $course;
-      echo $date;
-      $query = "SELECT * FROM course WHERE course_name = '$course'";
+
+      $query = "SELECT * FROM course WHERE course_id = '$course'";
       $results = mysqli_query($connection,$query);
       if($row = mysqli_fetch_assoc($results)){
         $courseId = $row['course_id'];
