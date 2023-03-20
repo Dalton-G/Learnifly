@@ -2,6 +2,11 @@
 <?php include "../../Learnifly/dbConnection/dbConnection.php"; ?>
 <?php include "../../Learnifly/homepage/tables/downloadFiles.php"; ?>
 
+<?php
+$user_id = $_SESSION["user_id"];
+$class_id = $_SESSION["class_id"];
+?>
+
 <head>
     <title>View Submission</title>
 <body>
@@ -30,12 +35,12 @@
             <th>Grade</th>
         </tr>
         <?php
-            $courseDefaultQuery = "SELECT user.user_name, course.course_name, submission.submission_date_time, submission.submission_file, grade.grade_given, submission.submission_id FROM ((( user INNER JOIN submission ON user.user_id = submission.user_id) INNER JOIN course ON submission.course_id = course.course_id) LEFT JOIN grade ON grade.submission_id = submission.submission_id)";
+            $courseDefaultQuery = "SELECT user.user_name, course.course_name, submission.submission_date_time, submission.submission_file, grade.grade_given, submission.submission_id FROM ((( user INNER JOIN submission ON user.user_id = submission.user_id) INNER JOIN course ON submission.course_id = course.course_id) LEFT JOIN grade ON grade.submission_id = submission.submission_id) WHERE course.user_id = '$user_id'";
             $getCourseData = mysqli_query($connection, $courseDefaultQuery);
 
             if (isset($_GET['btnSubmit'])) {
                 $courseSearch = $_GET['txtCourseName'];
-                $courseSearchQuery = "SELECT user.user_name, course.course_name, submission.submission_date_time, submission.submission_file, grade.grade_given, submission.submission_id FROM ((( user INNER JOIN submission ON user.user_id = submission.user_id) INNER JOIN course ON submission.course_id = course.course_id) LEFT JOIN grade ON grade.submission_id = submission.submission_id) WHERE course_name = '$courseSearch'";
+                $courseSearchQuery = "SELECT user.user_name, course.course_name, submission.submission_date_time, submission.submission_file, grade.grade_given, submission.submission_id FROM ((( user INNER JOIN submission ON user.user_id = submission.user_id) INNER JOIN course ON submission.course_id = course.course_id) LEFT JOIN grade ON grade.submission_id = submission.submission_id) WHERE course.user_id = '$user_id' AND course_name = '$courseSearch'";
                 $getSearchedCourseData = mysqli_query($connection, $courseSearchQuery);
                 while ($row = mysqli_fetch_assoc($getSearchedCourseData)) {
                     echo 
