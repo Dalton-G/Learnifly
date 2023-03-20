@@ -31,12 +31,36 @@ include 'downloadFiles.php';
             <th>Grade</th>
         </tr>
         <?php
-            $courseDefaultQuery = "SELECT course.course_name, course.course_desc, course.course_resource, assignment.assignment_file, grade.grade_given FROM ((( course LEFT JOIN assignment ON course.course_id = assignment.course_id) LEFT JOIN submission ON course.course_id = submission.course_id) LEFT JOIN grade ON submission.submission_id = grade.submission_id) WHERE course.class_id = '$class_id'";
+            $courseDefaultQuery = "SELECT
+            course.course_name,
+            course.course_desc,
+            course.course_resource,
+            assignment.assignment_file,
+            grade.grade_given
+            FROM ((((( user
+            INNER JOIN class ON user.class_id = class.class_id)
+            INNER JOIN course ON course.class_id = class.class_id)
+            LEFT JOIN assignment ON assignment.course_id = course.course_id)
+            LEFT JOIN submission ON course.course_id = submission.course_id AND user.user_id = submission.user_id)
+            LEFT JOIN grade ON grade.submission_id = submission.submission_id)
+            WHERE user.user_id = '$user_id'";
             $getCourseData = mysqli_query($connection, $courseDefaultQuery);
 
             if (isset($_GET['btnSubmit'])) {
                 $courseSearch = $_GET['txtCourseName'];
-                $courseSearchQuery = "SELECT course.course_name, course.course_desc, course.course_resource, assignment.assignment_file, grade.grade_given FROM ((( course LEFT JOIN assignment ON course.course_id = assignment.course_id) LEFT JOIN submission ON course.course_id = submission.course_id) LEFT JOIN grade ON submission.submission_id = grade.submission_id) WHERE course.class_id = '$class_id' AND course_name = '$courseSearch'";
+                $courseSearchQuery = "SELECT
+                course.course_name,
+                course.course_desc,
+                course.course_resource,
+                assignment.assignment_file,
+                grade.grade_given
+                FROM ((((( user
+                INNER JOIN class ON user.class_id = class.class_id)
+                INNER JOIN course ON course.class_id = class.class_id)
+                LEFT JOIN assignment ON assignment.course_id = course.course_id)
+                LEFT JOIN submission ON course.course_id = submission.course_id AND user.user_id = submission.user_id)
+                LEFT JOIN grade ON grade.submission_id = submission.submission_id)
+                WHERE user.user_id = '$user_id' AND course_name = '$courseSearch'";
                 $getSearchedCourseData = mysqli_query($connection, $courseSearchQuery);
                 while ($row = mysqli_fetch_assoc($getSearchedCourseData)) {
                     echo 
