@@ -40,10 +40,10 @@ include 'downloadFiles.php';
                 $getSearchedCourseData = mysqli_query($connection, $courseSearchQuery);
                 while ($row = mysqli_fetch_assoc($getSearchedCourseData)) {
                     echo 
-                    "<tr><td>" . $row["course_name"] . 
-                    "</td><td>" . $row["course_desc"] .
-                    "</td><td>" . downloadCourse($row['course_resource']) .
-                    "</td><td>" . downloadAssignment($row['assignment_file']) . 
+                    "<tr><td class='lecturer-db-1'>" . $row["course_name"] . 
+                    "</td><td class='lecturer-db-2'>" . $row["course_desc"] .
+                    "</td><td class='lecturer-db-3'>" . downloadCourse($row['course_resource']) .
+                    "</td><td class='lecturer-db-4'>" . downloadAssignment($row['assignment_file']) . 
                     "</td></td>";
                 }
                 echo "</table>";
@@ -51,10 +51,10 @@ include 'downloadFiles.php';
             } else {
                 while ($row = $getCourseData -> fetch_assoc()) {
                     echo 
-                    "<tr><td>" . $row["course_name"] . 
-                    "</td><td>" . $row["course_desc"] .
-                    "</td><td>" . downloadCourse($row['course_resource']) .
-                    "</td><td>" . downloadAssignment($row['assignment_file']) . 
+                    "<tr><td class='lecturer-db-1'>" . $row["course_name"] . 
+                    "</td><td class='lecturer-db-2'>" . $row["course_desc"] .
+                    "</td><td class='lecturer-db-3'>" . downloadCourse($row['course_resource']) .
+                    "</td><td class='lecturer-db-4'>" . downloadAssignment($row['assignment_file']) . 
                     "</td></td>";
                 }
                 echo "</table>";

@@ -31,20 +31,44 @@ include 'downloadFiles.php';
             <th>Grade</th>
         </tr>
         <?php
-            $courseDefaultQuery = "SELECT course.course_name, course.course_desc, course.course_resource, assignment.assignment_file, grade.grade_given FROM ((( course LEFT JOIN assignment ON course.course_id = assignment.course_id) LEFT JOIN submission ON course.course_id = submission.course_id) LEFT JOIN grade ON submission.submission_id = grade.submission_id) WHERE course.class_id = '$class_id'";
+            $courseDefaultQuery = "SELECT
+            course.course_name,
+            course.course_desc,
+            course.course_resource,
+            assignment.assignment_file,
+            grade.grade_given
+            FROM ((((( user
+            INNER JOIN class ON user.class_id = class.class_id)
+            INNER JOIN course ON course.class_id = class.class_id)
+            LEFT JOIN assignment ON assignment.course_id = course.course_id)
+            LEFT JOIN submission ON course.course_id = submission.course_id AND user.user_id = submission.user_id)
+            LEFT JOIN grade ON grade.submission_id = submission.submission_id)
+            WHERE user.user_id = '$user_id'";
             $getCourseData = mysqli_query($connection, $courseDefaultQuery);
 
             if (isset($_GET['btnSubmit'])) {
                 $courseSearch = $_GET['txtCourseName'];
-                $courseSearchQuery = "SELECT course.course_name, course.course_desc, course.course_resource, assignment.assignment_file, grade.grade_given FROM ((( course LEFT JOIN assignment ON course.course_id = assignment.course_id) LEFT JOIN submission ON course.course_id = submission.course_id) LEFT JOIN grade ON submission.submission_id = grade.submission_id) WHERE course.class_id = '$class_id' AND course_name = '$courseSearch'";
+                $courseSearchQuery = "SELECT
+                course.course_name,
+                course.course_desc,
+                course.course_resource,
+                assignment.assignment_file,
+                grade.grade_given
+                FROM ((((( user
+                INNER JOIN class ON user.class_id = class.class_id)
+                INNER JOIN course ON course.class_id = class.class_id)
+                LEFT JOIN assignment ON assignment.course_id = course.course_id)
+                LEFT JOIN submission ON course.course_id = submission.course_id AND user.user_id = submission.user_id)
+                LEFT JOIN grade ON grade.submission_id = submission.submission_id)
+                WHERE user.user_id = '$user_id' AND course_name = '$courseSearch'";
                 $getSearchedCourseData = mysqli_query($connection, $courseSearchQuery);
                 while ($row = mysqli_fetch_assoc($getSearchedCourseData)) {
                     echo 
-                    "<tr><td>" . $row["course_name"] . 
-                    "</td><td>" . $row["course_desc"] .
-                    "</td><td>" . downloadCourse($row['course_resource']) .
-                    "</td><td>" . downloadAssignment($row['assignment_file']) . 
-                    "</td><td>" . checkGrade($row["grade_given"]) .
+                    "<tr><td class='student-db-1'>" . $row["course_name"] . 
+                    "</td><td class='student-db-2'>" . $row["course_desc"] .
+                    "</td><td class='student-db-3'>" . downloadCourse($row['course_resource']) .
+                    "</td><td class='student-db-4'>" . downloadAssignment($row['assignment_file']) . 
+                    "</td><td class='student-db-5'>" . checkGrade($row["grade_given"]) .
                     "</td></td>";
                 }
                 echo "</table>";
@@ -52,11 +76,11 @@ include 'downloadFiles.php';
             } else {
                 while ($row = $getCourseData -> fetch_assoc()) {
                     echo 
-                    "<tr><td>" . $row["course_name"] . 
-                    "</td><td>" . $row["course_desc"] .
-                    "</td><td>" . downloadCourse($row['course_resource']) .
-                    "</td><td>" . downloadAssignment($row['assignment_file']) . 
-                    "</td><td>" . checkGrade($row["grade_given"]) .
+                    "<tr><td class='student-db-1'>" . $row["course_name"] . 
+                    "</td><td class='student-db-2'>" . $row["course_desc"] .
+                    "</td><td class='student-db-3'>" . downloadCourse($row['course_resource']) .
+                    "</td><td class='student-db-4'>" . downloadAssignment($row['assignment_file']) . 
+                    "</td><td class='student-db-5'>" . checkGrade($row["grade_given"]) .
                     "</td></td>";
                 }
                 echo "</table>";

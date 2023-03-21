@@ -32,7 +32,8 @@
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
     position: absolute;
     top: 20%;
-    left: 28%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .wrapper .title {
@@ -79,10 +80,6 @@
     cursor: pointer;
 }
 
-.wrapper form .field input:focus,
-form .field input:valid {
-    border-color: #4158d0;
-}
 
 .wrapper form .field label {
     position: absolute;
@@ -107,7 +104,7 @@ form .field input:valid {
     transform: translateY(-50%);
 }
 
-.wrapper form .icon{
+.wrapper form .icon{   /*icon style*/
     position: absolute;
     right: calc(1.35rem + 2px);
     top: 42%;
@@ -118,12 +115,17 @@ form .field input:valid {
 }
 
 form .field input:focus~label,
-form .field input:valid~label {
+form .field input:valid~label {   /*label style when focused*/
     top: 0%;
     font-size: 16px;
     color: #4158d0;
     background: #fff;
     transform: translateY(-50%);
+}
+
+.wrapper form .field input:focus,   /*field border style when focused*/
+form .field input:valid {
+    border-color: #4158d0;
 }
 
 .wrapper form .s input[type="file"]{

@@ -1,7 +1,9 @@
 <?php
-  include ("../../../Learnifly/dbConnection/dbConnection.php");
+  include ("../../Learnifly/dbConnection/dbConnection.php");
   if (isset($_POST['btnSubmit'])) {
-  $targetfolder = "../../resources/courseSubmission/";
+  $targetfolder = "../resources/courseSubmission/";
+  $studentId = $_POST['studentID'];
+  echo $studentId;
   $targetfolder = $targetfolder . basename( $_FILES['txtFile']['name']) ;
   $file_type=$_FILES['txtFile']['type'];
   if ($file_type=="application/pdf") {
@@ -12,9 +14,8 @@
       $course = $_POST['txtCourse']; 
       $date = $_POST['txtDate'];
       echo implode (",",$file);
-      echo $course;
-      echo $date;
-      $query = "SELECT * FROM course WHERE course_name = '$course'";
+
+      $query = "SELECT * FROM course WHERE course_id = '$course'";
       $results = mysqli_query($connection,$query);
       if($row = mysqli_fetch_assoc($results)){
         $courseId = $row['course_id'];

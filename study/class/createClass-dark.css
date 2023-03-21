@@ -30,7 +30,9 @@
     box-shadow: 0px 15px 20px rgba(95, 94, 94, 0.573);
     position: absolute;
     top: 20%;
-    left: 28%;
+    margin-left: auto;
+    margin-right: auto;
+   
 }
 
 .wrapper .title {

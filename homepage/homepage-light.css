@@ -135,7 +135,7 @@ font-family: 'Montserrat', sans-serif;
     color: var(--dropdown-box-background);
     padding: 10px 10px;
     cursor: pointer;
-    font-family: 'Didact Gothic', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .dashboard-btn-2 {
@@ -147,7 +147,7 @@ font-family: 'Montserrat', sans-serif;
     color: var(--dropdown-box-background);
     padding: 10px 10px;
     cursor: pointer;
-    font-family: 'Didact Gothic', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* student dashboard */
@@ -159,4 +159,41 @@ font-family: 'Montserrat', sans-serif;
     padding: 10px 20px;
     border-radius: 5px;
     scale: 0.8;
+}
+
+.hidden-grade-btn {
+    color: transparent;
+    background-color: transparent;
+    border: none;
+}
+
+/* student dashboard table */
+.student-db-1 {
+    width: 10%;
+}
+.student-db-2 {
+    width: 40%;
+}
+.student-db-3 {
+    width: 20%;
+}
+.student-db-4 {
+    width: 20%;
+}
+.student-db-5 {
+    width: 10%;
+}
+
+/* lecturer dashboard table */
+.lecturer-db-1 {
+    width: 10%;
+}
+.lecturer-db-2 {
+    width: 50%;
+}
+.lecturer-db-3 {
+    width: 20%;
+}
+.lecturer-db-4 {
+    width: 20%;
 }
