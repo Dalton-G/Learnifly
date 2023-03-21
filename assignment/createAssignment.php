@@ -13,7 +13,7 @@ if (!(isset($_SESSION["user_id"]) && isset($_SESSION["user_role"]))) {
 ?>
 
 <?php
-$query = $con->query("SELECT * FROM course");
+$query = $con->query("SELECT * FROM course WHERE user_id = $user_id");
 
 ?>
 
