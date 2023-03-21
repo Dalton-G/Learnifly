@@ -2,6 +2,8 @@
   include ("../../Learnifly/dbConnection/dbConnection.php");
   if (isset($_POST['btnSubmit'])) {
   $targetfolder = "../resources/courseSubmission/";
+  $studentId = $_POST['studentID'];
+  echo $studentId;
   $targetfolder = $targetfolder . basename( $_FILES['txtFile']['name']) ;
   $file_type=$_FILES['txtFile']['type'];
   if ($file_type=="application/pdf") {

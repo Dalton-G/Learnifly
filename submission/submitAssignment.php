@@ -32,6 +32,7 @@
                     <i class="icon fa-solid fa-book"></i>
                 </div>
                 <div class="field r">
+                    <input type = "hidden" name = "studentID" value = "<?=$studentId?>">
                     <input  type="integer" name="txtDate" value="<?php date_default_timezone_set("Asia/Kuala_Lumpur"); echo date("Y/m/d h:i:sa")?>" readonly/>
                     <label>Submission Date</label>
                     <i class="icon fa-solid fa-calendar-days"></i>
