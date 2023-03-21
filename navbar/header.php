@@ -3,6 +3,9 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
+if(!(isset($_SESSION["user_id"]))) {
+    header("Location: ../login/logout.php");
+}
 $user_id = $_SESSION["user_id"];
 $user_role = $_SESSION["user_role"];
 $user_name = $_SESSION["user_name"];
