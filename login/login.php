@@ -47,6 +47,7 @@
             <img src="" alt="Cover Image" /> <!-- Generated image -->
             <div class="testimony-div">
                 <p>
+                    <!-- Generated testimonial -->
                     "Thanks to Learnifly, I can concentrate on my students'
                     education without any distractions!" <br />
                     - Sarah Johnson, Lecturer
