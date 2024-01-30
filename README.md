@@ -21,7 +21,7 @@ Learnifly is a full-stack Learning Management System (LMS) built using PHP, offe
 ![login](https://github.com/Dalton-G/Learnifly/blob/main/screenshots/LoginPage.png?raw=true)
 ![createAcc](https://github.com/Dalton-G/Learnifly/blob/main/screenshots/AdminCreateAccount.png?raw=true)
 ![manageCrs](https://github.com/Dalton-G/Learnifly/blob/main/screenshots/AdminManageCourses.png?raw=true)
-![createAsg](https://github.com/Dalton-G/Learnifly/blob/main/screenshots/CreateAssignment?raw=true)
+![createAsg](https://github.com/Dalton-G/Learnifly/blob/main/screenshots/CreateAssignment.png?raw=true)
 ![submitAsg](https://github.com/Dalton-G/Learnifly/blob/main/screenshots/SubmitAssignment.png?raw=true)
 ![viewAsg](https://github.com/Dalton-G/Learnifly/blob/main/screenshots/StudentViewAssignment.png?raw=true)
 
